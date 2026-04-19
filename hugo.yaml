@@ -148,7 +148,7 @@ menu:
       url: /initiatives/invitational/
       weight: 10
     - identifier: scioly-coaching
-      name: Science Olympiad Coaching Program
+      name: Science Olympiad Coaching Program (SOCP)
       url: /initiatives/scioly-coaching/
       weight: 20
     - identifier: math-mentor
