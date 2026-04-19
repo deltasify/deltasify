@@ -1,0 +1,389 @@
+---
+title: "UCR Highlander Invitational"
+date: 2021-12-18T11:10:36+08:00
+draft: false
+language: en
+description: About Us
+featured_image: ../assets/images/featured/logo-invitational26-1920x1080.png
+---
+
+<style>
+  /* Modern Bento Box Container */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(min-content, auto);
+    gap: 1.5rem;
+    font-family: inherit;
+    color: var(--color-zinc-800);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .dark .bento-grid {
+    color: var(--color-zinc-200);
+  }
+
+  /* Universal Card Styling */
+  .bento-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-zinc-200);
+    border-radius: 1.5rem;
+    padding: 1.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    
+    /* Animation initial state */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .bento-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  a.bento-card.is-visible:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-indigo-50);
+    border-color: var(--color-indigo-200);
+  }
+  
+  a.bento-card.is-visible:hover .stat-value,
+  a.bento-card.is-visible:hover .stat-label {
+    color: var(--color-indigo-700);
+  }
+
+  .dark .bento-card {
+    background-color: var(--color-zinc-900);
+    border-color: var(--color-zinc-800);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  }
+  
+  .dark a.bento-card.is-visible:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    background-color: var(--color-indigo-950);
+    border-color: var(--color-indigo-800);
+  }
+
+  .dark a.bento-card.is-visible:hover .stat-value,
+  .dark a.bento-card.is-visible:hover .stat-label {
+    color: var(--color-indigo-300);
+  }
+
+  .bento-card h3 {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    color: var(--color-indigo-600);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .dark .bento-card h3 {
+    color: var(--color-indigo-400);
+  }
+
+  /* Stat Blocks */
+  .card-stat {
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1.5rem;
+  }
+
+  .stat-value {
+    font-size: 2.25rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-zinc-900);
+    margin-bottom: 0.5rem;
+    transition: color 0.2s ease;
+  }
+
+  .dark .stat-value {
+    color: var(--color-white);
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-zinc-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+  }
+  
+  .dark .stat-label {
+    color: var(--color-zinc-400);
+  }
+
+  /* Grid Alignments */
+  .card-stat { grid-column: span 6; }
+  .card-resources { grid-column: span 12; }
+  .card-video { grid-column: span 12; aspect-ratio: 16 / 9; padding: 0; overflow: hidden; }
+  .card-winners { grid-column: span 12; }
+  .card-quicklinks { grid-column: span 12; }
+
+  @media (min-width: 768px) {
+    .card-stat { grid-column: span 3; }
+    .card-video { grid-column: span 12; }
+    .card-resources { grid-column: span 12; }
+    .card-winners { grid-column: span 6; }
+  }
+
+  @media (min-width: 1024px) {
+    .card-stat { grid-column: span 3; }
+    .card-video { grid-column: span 12; }
+    .card-resources { grid-column: span 12; }
+    .card-winners { grid-column: span 6; }
+  }
+
+  /* Shared Inner Card Styling (Links & Winners) */
+  .inner-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 100%;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .inner-card-container.horizontal {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+
+  @media (min-width: 640px) {
+    .inner-card-container.horizontal {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .inner-card-container.horizontal {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .inner-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: var(--color-zinc-50);
+    color: var(--color-zinc-700);
+    text-decoration: none;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    border: 1px solid var(--color-zinc-200);
+    transition: all 0.2s ease;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  a.inner-card:hover {
+    background-color: var(--color-indigo-50);
+    color: var(--color-indigo-700);
+    border-color: var(--color-indigo-200);
+    transform: translateX(4px);
+  }
+
+  .inner-card-container.horizontal a.inner-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .dark .inner-card {
+    background-color: var(--color-zinc-800);
+    color: var(--color-zinc-300);
+    border-color: var(--color-zinc-700);
+  }
+
+  .dark a.inner-card:hover {
+    background-color: var(--color-indigo-950);
+    color: var(--color-indigo-300);
+    border-color: var(--color-indigo-800);
+  }
+
+  /* Specifics for Links */
+  .inner-card .arrow {
+    transition: transform 0.2s ease;
+    opacity: 0.5;
+  }
+  
+  a.inner-card:hover .arrow {
+    transform: translateX(4px);
+    opacity: 1;
+  }
+
+  .inner-card-container.horizontal a.inner-card:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  /* Specifics for Winners */
+  .inner-card.winner {
+    justify-content: flex-start;
+  }
+  
+  .inner-card.winner:nth-child(1) .rank { background-color: #f59e0b; color: #fff; }
+  .inner-card.winner:nth-child(2) .rank { background-color: #9ca3af; color: #fff; }
+  .inner-card.winner:nth-child(3) .rank { background-color: #b45309; color: #fff; }
+  .inner-card.winner:nth-child(4) .rank { background-color: #fef08a; color: #854d0e; }
+  .inner-card.winner:nth-child(5) .rank { background-color: #bbf7d0; color: #166534; }
+  .inner-card.winner:nth-child(6) .rank { background-color: #e9d5ff; color: #6b21a8; }
+
+  .rank {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    background-color: var(--color-zinc-200);
+    color: var(--color-zinc-600);
+    border-radius: 50%;
+    margin-right: 1rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  
+  .dark .rank {
+    background-color: var(--color-zinc-700);
+    color: var(--color-zinc-300);
+  }
+
+  /* Video Iframe fix */
+  .card-video iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    min-height: 300px;
+    border-radius: 1.5rem;
+    display: block;
+  }
+</style>
+
+<div class="bento-grid">
+
+  <!-- Stats Row -->
+  <div class="bento-card card-stat">
+    <span class="stat-value">Jan 24</span>
+    <span class="stat-label">2026</span>
+  </div>
+
+  <div class="bento-card card-stat">
+    <span class="stat-value" style="font-size: 1.8rem;">In-Person</span>
+    <span class="stat-label">Format</span>
+  </div>
+
+  <div class="bento-card card-stat">
+    <span class="stat-value">B & C</span>
+    <span class="stat-label">Divisions</span>
+  </div>
+
+  <div class="bento-card card-stat">
+    <span class="stat-value">$200</span>
+    <span class="stat-label">Per Team</span>
+  </div>
+
+  <!-- Resources Row -->
+  <a href="https://drive.google.com/drive/folders/1Si1tRRWFxhpZmO3IEyA07xAS7aMY7oyX?usp=drive_link" class="bento-card card-stat" style="text-decoration: none;">
+    <span class="stat-value">Test Release</span>
+    <span class="stat-label">Resource</span>
+  </a>
+
+  <a href="https://www.duosmium.org/results/2026-01-24_ucr_highlander_invitational_b/" class="bento-card card-stat" style="text-decoration: none;">
+    <span class="stat-value">Results</span>
+    <span class="stat-label">Division B (Final)</span>
+  </a>
+
+  <a href="https://www.duosmium.org/results/2026-01-24_ucr_highlander_invitational_c/" class="bento-card card-stat" style="text-decoration: none;">
+    <span class="stat-value">Results</span>
+    <span class="stat-label">Division C (Final)</span>
+  </a>
+
+  <a href="https://docs.google.com/document/d/1D-Co0ZJMis072oOsZh2PfO_pPcyoJKmo8kKA3SFhscc/edit?usp=sharing" class="bento-card card-stat" style="text-decoration: none;">
+    <span class="stat-value">Coaches'</span>
+    <span class="stat-label">Communications</span>
+  </a>
+
+  <!-- Video Row -->
+  <div class="bento-card card-video">
+    <iframe src="https://www.youtube.com/embed/edDrQTAYTXc" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <!-- Winners Row -->
+  <div class="bento-card card-winners">
+    <h3>Division B Winners</h3>
+    <div class="inner-card-container">
+      <div class="inner-card winner"><span class="rank">1</span> <span class="team">Sierra Vista Middle School</span></div>
+      <div class="inner-card winner"><span class="rank">2</span> <span class="team">Kennedy Middle School</span></div>
+      <div class="inner-card winner"><span class="rank">3</span> <span class="team">Oak Valley Middle School</span></div>
+      <div class="inner-card winner"><span class="rank">4</span> <span class="team">Dana Middle School</span></div>
+      <div class="inner-card winner"><span class="rank">5</span> <span class="team">Gretchen Whitney High School</span></div>
+      <div class="inner-card winner"><span class="rank">6</span> <span class="team">Kraemer Middle School</span></div>
+    </div>
+  </div>
+
+  <div class="bento-card card-winners">
+    <h3>Division C Winners</h3>
+    <div class="inner-card-container">
+      <div class="inner-card winner"><span class="rank">1</span> <span class="team">Gretchen Whitney High School</span></div>
+      <div class="inner-card winner"><span class="rank">2</span> <span class="team">Arnold O. Beckman High School</span></div>
+      <div class="inner-card winner"><span class="rank">3</span> <span class="team">Portola High School</span></div>
+      <div class="inner-card winner"><span class="rank">4</span> <span class="team">Diamond Bar High School</span></div>
+      <div class="inner-card winner"><span class="rank">5</span> <span class="team">Canyon High School</span></div>
+      <div class="inner-card winner"><span class="rank">6</span> <span class="team">California Academy of Mathematics and Science</span></div>
+    </div>
+  </div>
+
+  <!-- Quick Links Row -->
+  <div class="bento-card card-quicklinks">
+    <div class="inner-card-container horizontal">
+      <a href="https://docs.google.com/presentation/d/1MlQ3f6qgPtCUxRO0XO4HCUpFRMwdZLNT2EtH3VlsLxY/edit?usp=drive_link" class="inner-card">Registration Guide <span class="arrow">→</span></a>
+      <a href="https://docs.google.com/spreadsheets/d/1xXJzIFm9NzSNoAA9PMYywAmZNlT5V975APd70uNrpEA/edit?usp=drive_link" class="inner-card">Team Payment Status <span class="arrow">→</span></a>
+      <a href="https://docs.google.com/spreadsheets/d/1o2-9HyvNgICEeQgLp-NtSHpxayCuKpUZ10XIGF0i81g/edit?usp=drive_link" class="inner-card">Team Numbers <span class="arrow">→</span></a>
+      <a href="https://drive.google.com/file/d/1L9I0E27lJMtV_uHYfQrQj-SCqsQFYBtq/view?usp=drive_link" class="inner-card">Tournament Schedule <span class="arrow">→</span></a>
+      <a href="https://docs.google.com/document/d/1g0CcTggTONviMhG0f_Eeu4NlObaZ-XJJGnoXZQ04h9s/edit?usp=drive_link" class="inner-card">Event Clarifications <span class="arrow">→</span></a>
+      <a href="https://esus.socalscioly.org/login.php?tid=356" class="inner-card">ESUS <span class="arrow">→</span></a>
+      <a href="https://drive.google.com/file/d/19MT6r6qWHZbkp16rps_WZ-va8wjtDIyJ/view?usp=drive_link" class="inner-card">Campus Map <span class="arrow">→</span></a>
+      <a href="https://www.offstreet.io/events/5T6OJHA2" class="inner-card">Parking Permits <span class="arrow">→</span></a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          // Remove transition delay after animation completes to keep hover snappy
+          setTimeout(() => {
+            entry.target.style.transitionDelay = '0s';
+            entry.target.style.transition = 'all 0.2s ease';
+          }, 600);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.bento-card').forEach((card, index) => {
+      // Add a slight stagger delay based on DOM order for a nicer effect
+      card.style.transitionDelay = `${(index % 4) * 0.1}s`;
+      observer.observe(card);
+    });
+  });
+</script>
