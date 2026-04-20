@@ -49,140 +49,87 @@
     </div>
     <!-- More main page content here... -->
 
-    <div class="relative my-4 overflow-hidden">
-        <div class="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:items-start lg:gap-24 lg:px-8">
-            <div class="relative sm:py-8 lg:py-0">
-                <div aria-hidden="true" class="hidden sm:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-screen">
-                    <div class="absolute inset-y-0 right-1/2 w-full bg-gray-50 rounded-r-3xl dark:bg-gray-900/10 lg:right-72"></div>
-                    <svg class="absolute top-8 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12" width="404" height="392" fill="none" viewBox="0 0 404 392" loading="lazy">
-                        <defs>
-                            <pattern id="pattern-p1" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                                <rect x="0" y="0" width="4" height="4" class="text-gray-200 dark:text-gray-900/60" fill="currentcolor"></rect>
-                            </pattern>
-                        </defs>
-                        <rect width="404" height="392" fill="url(#pattern-p1)"></rect>
-                    </svg>
+    <div class="relative px-4 py-8 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="bento-grid">
+            <!-- Card 1 -->
+            <div class="bento-card card-full flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 items-stretch fade-in-section">
+                <div class="flex-shrink-0 w-full max-w-sm mx-auto md:max-w-none md:w-1/3">
+                    {{ $p1image := resources.Get .Site.Params.P1.Image }}
+                    {{ with $p1image }}
+                    {{ with .Resize "600x600 webp q85" }}
+                    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" class="object-cover w-full h-auto rounded-2xl shadow-xl aspect-square" alt="{{ $.Site.Params.P1.Heading }}" loading="lazy" />
+                    {{ end }}
+                    {{ end }}
                 </div>
-                <div class="relative px-4 py-6 mx-auto w-full h-auto sm:max-w-3xl sm:px-6 lg:px-0 lg:py-20">
-                    <div class="overflow-hidden rounded-2xl shadow-xl">
-                        {{ $p1image := resources.Get .Site.Params.P1.Image }}
-                        {{ with $p1image }}
-                        {{ with .Resize "600x600 webp q85" }}
-                        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" class="w-full h-auto" alt="Section 1 Image" loading="lazy" />
-                        {{ end }}
-                        {{ end }}
-                    </div>
-                </div>
-            </div>
-            <div class="relative px-4 mx-auto max-w-md sm:max-w-3xl sm:px-6 lg:px-0">
-                <div class="md:pt-12 sm:pt-6 lg:pt-20">
-                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl">
+                <div class="flex-1 flex flex-col min-w-0 w-full">
+                    <h3>
                         {{ .Site.Params.P1.Heading }}
-                    </h2>
-                    <div class="mt-6 text-gray-900 dark:text-white">
-                        <div class="mt-6 space-y-6 text-gray-900 dark:text-white">
-                            {{ range .Site.Params.P1.Content }}
-                            <p class="text-lg text-gray-900 dark:text-white">
-                                {{ .text }}
-                            </p>
-                            {{ end }}
-                        </div>
+                    </h3>
+                    <div class="text-content text-lg mt-2 mb-4">
+                        {{ range .Site.Params.P1.Content }}
+                        <p class="mb-2">
+                            {{ .text }}
+                        </p>
+                        {{ end }}
                     </div>
+                    <a href="#" target="_blank" class="badge" style="cursor: pointer; appearance: none; outline: none; font-family: inherit; margin-top: auto; align-self: flex-start;">Learn More</a>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="relative my-4 overflow-hidden">
-        <div class="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:items-start lg:gap-24 lg:px-8">
-            <div class="relative px-4 mx-auto max-w-md sm:max-w-3xl sm:px-6 lg:px-0">
-                <div class="md:pt-12 sm:pt-6 lg:pt-20">
-                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl">
+            <!-- Card 2 -->
+            <div class="bento-card card-full flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 items-stretch fade-in-section">
+                <div class="flex-shrink-0 w-full max-w-sm mx-auto md:max-w-none md:w-1/3">
+                    {{ $p2image := resources.Get .Site.Params.P2.Image }}
+                    {{ with $p2image }}
+                    {{ with .Resize "600x600 webp q85" }}
+                    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" class="object-cover w-full h-auto rounded-2xl shadow-xl aspect-square" alt="{{ $.Site.Params.P2.Heading }}" loading="lazy" />
+                    {{ end }}
+                    {{ end }}
+                </div>
+                <div class="flex-1 flex flex-col min-w-0 w-full">
+                    <h3>
                         {{ .Site.Params.P2.Heading }}
-                    </h2>
-                    <div class="mt-6 text-gray-900 dark:text-white">
-                        <div class="mt-6 space-y-6 text-gray-900 dark:text-white">
-                            {{ range .Site.Params.P2.Content }}
-                            <p class="text-lg text-gray-900 dark:text-white">
-                                {{ .text }}
-                            </p>
-                            {{ end }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="relative sm:py-8 lg:py-0">
-                <div aria-hidden="true" class="hidden sm:block lg:absolute lg:inset-y-0 lg:left-0 lg:w-screen">
-                    <div class="absolute inset-y-0 left-1/2 w-full bg-gray-50 rounded-l-3xl dark:bg-gray-900/10 lg:left-72"></div>
-                    <svg class="absolute top-8 right-1/2 -mr-3 lg:-left-8 lg:right-auto lg:top-12" width="404" height="392" fill="none" viewBox="0 0 404 392" loading="lazy">
-                        <defs>
-                            <pattern id="pattern-p2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                                <rect x="0" y="0" width="4" height="4" class="text-gray-200 dark:text-gray-900/60" fill="currentcolor"></rect>
-                            </pattern>
-                        </defs>
-                        <rect width="404" height="392" fill="url(#pattern-p2)"></rect>
-                    </svg>
-                </div>
-                <div class="relative px-4 py-6 mx-auto w-full h-auto sm:max-w-3xl sm:px-6 lg:px-0 lg:py-20">
-                    <div class="overflow-hidden rounded-2xl shadow-xl">
-                        {{ $p2image := resources.Get .Site.Params.P2.Image }}
-                        {{ with $p2image }}
-                        {{ with .Resize "600x600 webp q85" }}
-                        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" class="w-full h-auto" alt="Section 2 Image" loading="lazy" />
-                        {{ end }}
+                    </h3>
+                    <div class="text-content text-lg mt-2 mb-4">
+                        {{ range .Site.Params.P2.Content }}
+                        <p class="mb-2">
+                            {{ .text }}
+                        </p>
                         {{ end }}
                     </div>
+                    <a href="#" target="_blank" class="badge" style="cursor: pointer; appearance: none; outline: none; font-family: inherit; margin-top: auto; align-self: flex-start;">Learn More</a>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="relative my-4 overflow-hidden">
-        <div class="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:items-start lg:gap-24 lg:px-8">
-            <div class="relative sm:py-8 lg:py-0">
-                <div aria-hidden="true" class="hidden sm:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-screen">
-                    <div class="absolute inset-y-0 right-1/2 w-full bg-gray-50 rounded-r-3xl dark:bg-gray-900/10 lg:right-72"></div>
-                    <svg class="absolute top-8 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12" width="404" height="392" fill="none" viewBox="0 0 404 392" loading="lazy">
-                        <defs>
-                            <pattern id="pattern-p3" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                                <rect x="0" y="0" width="4" height="4" class="text-gray-200 dark:text-gray-900/60" fill="currentcolor"></rect>
-                            </pattern>
-                        </defs>
-                        <rect width="404" height="392" fill="url(#pattern-p3)"></rect>
-                    </svg>
+            <!-- Card 3 -->
+            <div class="bento-card card-full flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 items-stretch fade-in-section">
+                <div class="flex-shrink-0 w-full max-w-sm mx-auto md:max-w-none md:w-1/3">
+                    {{ $p3image := resources.Get .Site.Params.P3.Image }}
+                    {{ if $p3image }}
+                    {{ with $p3image.Resize "600x600 webp q85" }}
+                    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" class="object-cover w-full h-auto rounded-2xl shadow-xl aspect-square" alt="{{ $.Site.Params.P3.Heading }}" loading="lazy" />
+                    {{ end }}
+                    {{ end }}
                 </div>
-                <div class="relative px-4 py-6 mx-auto w-full h-auto sm:max-w-3xl sm:px-6 lg:px-0 lg:py-20">
-                    <div class="overflow-hidden rounded-2xl shadow-xl">
-                        {{ $p3image := resources.Get .Site.Params.P3.Image }}
-                        {{ if $p3image }}
-                        {{ with $p3image.Resize "600x600 webp q85" }}
-                        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" class="w-full h-auto" alt="Section 3 Image" loading="lazy" />
-                        {{ end }}
-                        {{ end }}
-                    </div>
-                </div>
-            </div>
-            <div class="relative px-4 mx-auto max-w-md sm:max-w-3xl sm:px-6 lg:px-0">
-                <div class="md:pt-12 sm:pt-6 lg:pt-20">
-                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl">
+                <div class="flex-1 flex flex-col min-w-0 w-full">
+                    <h3>
                         {{ .Site.Params.P3.Heading }}
-                    </h2>
-                    <div class="mt-6 text-gray-900 dark:text-white">
-                        <div class="mt-6 space-y-6 text-gray-900 dark:text-white">
-                            {{ range .Site.Params.P3.Content }}
-                            <p class="text-lg text-gray-900 dark:text-white">
-                                {{ .text }}
-                            </p>
-                            {{ end }}
-                        </div>
+                    </h3>
+                    <div class="text-content text-lg mt-2 mb-4">
+                        {{ range .Site.Params.P3.Content }}
+                        <p class="mb-2">
+                            {{ .text }}
+                        </p>
+                        {{ end }}
                     </div>
+                    <a href="#" target="_blank" class="badge" style="cursor: pointer; appearance: none; outline: none; font-family: inherit; margin-top: auto; align-self: flex-start;">Learn More</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Blog section -->
-    <div class="relative px-1 pt-8 pb-4 bg-transparent lg:px-8 lg:pt-12 lg:mb-4 md:mt-12">
+    <div class="relative px-1 pt-8 pb-4 bg-transparent lg:px-8 lg:pt-12 lg:mb-4 md:mt-12 fade-in-section">
         <div class="absolute inset-0">
             <div class="h-1/3 bg-gray-200 dark:bg-gray-900/50 sm:h-2/3"></div>
         </div>
@@ -201,7 +148,8 @@
             <div class="mx-auto max-w-7xl text-gray-900 dark:text-gray-50 md:px-1.5">
                 <div class="px-4 text-gray-900 dark:text-white not-prose dark:text-zinc-200">
                     <div class="grid gap-4 mx-auto mt-12 mb-4 lg:max-w-none md:grid-cols-3">
-                        {{ range (.Paginator 3).Pages }}
+                        {{ $posts := where .Site.RegularPages "Section" "posts" }}
+                        {{ range (.Paginate $posts 3).Pages }}
                             {{ partial "post-tile.html" . }}
                         {{ end }}
                     </div>
@@ -211,7 +159,135 @@
     </div>
 
     {{/* Newsletter signup section */}}
-    {{ partial "newsletter.html" . }}
+    <div class="fade-in-section">
+        {{ partial "newsletter.html" . }}
+    </div>
+
+    <style>
+    /* Base Bento styles from scioly-coaching */
+    .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: minmax(min-content, auto);
+        gap: 1.5rem;
+        font-family: inherit;
+        color: var(--color-zinc-800);
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .dark .bento-grid {
+        color: var(--color-zinc-200);
+    }
+
+    .bento-card {
+        background-color: var(--color-white);
+        border: 1px solid var(--color-zinc-200);
+        border-radius: 1.5rem;
+        padding: 1.75rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .dark .bento-card {
+        background-color: var(--color-zinc-900);
+        border-color: var(--color-zinc-800);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    }
+
+    .bento-card h3 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-indigo-600);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .dark .bento-card h3 {
+        color: var(--color-indigo-400);
+    }
+
+    /* Grid alignment */
+    .card-full { grid-column: span 12; }
+
+    .text-content {
+        line-height: 1.6;
+        color: var(--color-zinc-700);
+    }
+
+    .dark .text-content {
+        color: var(--color-zinc-300);
+    }
+
+    .fade-in-section {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in-section.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        background-color: transparent;
+        color: var(--color-indigo-600);
+        border: 1px solid var(--color-indigo-600);
+        transition: all 0.2s ease;
+        text-decoration: none;
+    }
+    
+    .badge:hover {
+        background-color: var(--color-indigo-50);
+        border-color: var(--color-indigo-700);
+        color: var(--color-indigo-700);
+        transform: translateY(-2px);
+    }
+
+    .dark .badge {
+        background-color: transparent;
+        color: var(--color-indigo-400);
+        border-color: var(--color-indigo-400);
+    }
+
+    .dark .badge:hover {
+        background-color: var(--color-indigo-950);
+        border-color: var(--color-indigo-300);
+        color: var(--color-indigo-300);
+    }
+    </style>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            setTimeout(() => {
+                entry.target.style.transitionDelay = '0s';
+                entry.target.style.transition = 'all 0.2s ease';
+            }, 600);
+            observer.unobserve(entry.target);
+            }
+        });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in-section').forEach((section, index) => {
+        section.style.transitionDelay = `${(index % 4) * 0.1}s`;
+        observer.observe(section);
+        });
+    });
+    </script>
 
 </main>
 {{ end }}
