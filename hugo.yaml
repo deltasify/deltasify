@@ -151,8 +151,8 @@ menu:
       name: Science Olympiad Coaching Program (SOCP)
       url: /initiatives/scioly-coaching/
       weight: 20
-    - identifier: math-mentor
-      name: Math Mentoring Program
+    - identifier: math-mentoring
+      name: MathCounts Mentoring Program (MMP)
       url: /initiatives/math-mentoring/
       weight: 30
   footer:
