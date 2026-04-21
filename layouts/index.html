@@ -26,7 +26,7 @@
                                 srcset="{{ $heroWebPSmall.RelPermalink }} 320w, {{ $heroWebP.RelPermalink }} 576w"
                                 sizes="(max-width: 640px) 320px, 576px"
                                 alt="TailBliss Hero" 
-                                class="overflow-hidden mx-auto rounded-2xl shadow-xl hero-image"
+                                class="overflow-hidden mx-auto shadow-xl hero-image"
                                 width="576" 
                                 height="576"
                                 loading="eager"
@@ -36,7 +36,7 @@
                             <img 
                                 src="/images/tailbliss-rocket-indigo.webp" 
                                 alt="TailBliss Hero" 
-                                class="overflow-hidden mx-auto rounded-2xl shadow-xl hero-image"
+                                class="overflow-hidden mx-auto shadow-xl hero-image"
                                 width="576" 
                                 height="576"
                                 loading="eager"
@@ -57,7 +57,7 @@
                     {{ $p1image := resources.Get .Site.Params.P1.Image }}
                     {{ with $p1image }}
                     {{ with .Resize "600x600 webp q85" }}
-                    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" class="object-cover w-full h-auto rounded-2xl shadow-xl aspect-square" alt="{{ $.Site.Params.P1.Heading }}" loading="lazy" />
+                    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" class="object-cover w-full h-auto shadow-xl aspect-square" alt="{{ $.Site.Params.P1.Heading }}" loading="lazy" />
                     {{ end }}
                     {{ end }}
                 </div>
@@ -82,7 +82,7 @@
                     {{ $p2image := resources.Get .Site.Params.P2.Image }}
                     {{ with $p2image }}
                     {{ with .Resize "600x600 webp q85" }}
-                    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" class="object-cover w-full h-auto rounded-2xl shadow-xl aspect-square" alt="{{ $.Site.Params.P2.Heading }}" loading="lazy" />
+                    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" class="object-cover w-full h-auto shadow-xl aspect-square" alt="{{ $.Site.Params.P2.Heading }}" loading="lazy" />
                     {{ end }}
                     {{ end }}
                 </div>
@@ -107,7 +107,7 @@
                     {{ $p3image := resources.Get .Site.Params.P3.Image }}
                     {{ if $p3image }}
                     {{ with $p3image.Resize "600x600 webp q85" }}
-                    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" class="object-cover w-full h-auto rounded-2xl shadow-xl aspect-square" alt="{{ $.Site.Params.P3.Heading }}" loading="lazy" />
+                    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" class="object-cover w-full h-auto shadow-xl aspect-square" alt="{{ $.Site.Params.P3.Heading }}" loading="lazy" />
                     {{ end }}
                     {{ end }}
                 </div>
@@ -129,6 +129,7 @@
     </div>
 
     <!-- Blog section -->
+    {{/*
     <div class="relative px-1 pt-8 pb-4 bg-transparent lg:px-8 lg:pt-12 lg:mb-4 md:mt-12 fade-in-section">
         <div class="absolute inset-0">
             <div class="h-1/3 bg-gray-200 dark:bg-gray-900/50 sm:h-2/3"></div>
@@ -157,6 +158,7 @@
             </div>
         </div>
     </div>
+    */}}
 
     {{/* Newsletter signup section */}}
     <div class="fade-in-section">
@@ -182,8 +184,8 @@
 
     .bento-card {
         background-color: var(--color-white);
-        border: 1px solid var(--color-zinc-200);
-        border-radius: 1.5rem;
+        border: none;
+        border-radius: 0;
         padding: 1.75rem;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         transition: box-shadow 0.2s ease, border-color 0.2s ease;
@@ -237,7 +239,7 @@
         display: inline-flex;
         align-items: center;
         padding: 0.5rem 1rem;
-        border-radius: 9999px;
+        border-radius: 0;
         font-size: 0.875rem;
         font-weight: 600;
         background-color: transparent;
