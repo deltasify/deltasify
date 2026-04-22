@@ -8,7 +8,3 @@ description: EVENT_PLACEHOLDER_NAME
 type: resources
 layout: template
 ---
-
-| ID | Week | Topic | Resources |
-|---|---|---|---|
-| | | | |

@@ -58,19 +58,19 @@ params:
 
   p1:
     heading: "UCR Highlander Invitational"
-    image: "images/deltasify-logo.png"
+    image: "images/featured/invitational-homepage.png"
     content:
       - text: "Originally founded in 2022, the Highlander Invitational is the University of California, Riverside’s official Science Olympiad tournament and the largest STEM competition in the Inland Empire."
       - text: "The tournament’s goal is to drive engagement in STEM education by fostering youth engagement with the sciences. Students from all over California compete across the 46 middle and high school Science Olympiad events, covering areas such as biology, chemistry, physics, earth science, engineering, and more. Science Olympiad provides a unique opportunity for students to learn and collaborate in a curiosity-driven, friendly competitive environment."
   p2:
     heading: "Science Olympiad Coaching Program (SOCP)"
-    image: "images/deltasify-logo.png"
+    image: "images/featured/scioly-coaching-homepage.png"
     content:
       - text: "The Science Olympiad Coaching Program (SOCP) connects dedicated volunteers with middle schoolers to prepare them for Science Olympiad, a track-meet style academic competition. As a coach, you will dedicate approximately one hour per week to develop lecture materials, research tasks, and practice tests, alongside a one-hour weekly coaching session."
       - text: "Having prior Science Olympiad experience is preferred, but not a strict requirement. You have the flexibility to coach an event independently or team up with a partner. By aiming for at least two coaches per event, we strive to distribute the workload and accommodate scheduling needs effectively."
   p3:
     heading: "MathCounts Mentoring Program (MMP)"
-    image: "images/deltasify-logo.png"
+    image: "images/featured/math-mentoring-homepage.png"
     content:
       - text: "MATHCOUNTS is a national math enrichment program and competition series for middle school students in grades 6-8. It focuses on critical thinking and problem-solving skills. The program has four levels of live, in-person competitions: School, Chapter, State, and National."
       - text: "As a mentor, you play a pivotal role in guiding students to reach their full potential and succeed at every level of competition. Coaches will work with small groups of students, teaching specific topics and reviewing problems with them once a week."
@@ -112,9 +112,9 @@ menu:
       name: Resources
       url: /resources/
       weight: 20
-    - identifier: partners
+    - identifier: our-partners
       name: Our Partners
-      url: /partners/
+      url: /our-partners/
       weight: 30
     - identifier: archive
       name: Archive

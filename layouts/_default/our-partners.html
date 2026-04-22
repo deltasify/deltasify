@@ -1,0 +1,479 @@
+{{define "main"}}
+<article>
+  <header class="mb-4 bg-primary-600">
+    <span class="py-96">
+      <h1 class="py-16 text-5xl font-black text-center text-white capitalize">
+        {{ .Title }}
+      </h1>
+    </span>
+  </header>
+  <div class="mx-auto mt-8 mb-2" style="max-width: 80%;">
+    <div class="px-6">
+      {{ with .Params.featured_image }}
+      {{ with resources.Get . }}
+      {{ $small := (.Resize "400x webp q80").RelPermalink }}
+      {{ $medium := (.Resize "550x webp q80").RelPermalink }}
+      {{ $large := (.Resize "900x webp q80").RelPermalink }}
+      {{ $featuredimage := (.Resize "1500x webp q80").RelPermalink }}
+      <img src="{{ $featuredimage }}" srcset="
+        {{- with $small -}}, {{.}} 400w{{- end -}}
+        {{- with $medium -}}, {{.}} 550w{{- end -}}
+        {{- with $large -}}, {{.}} 768w{{- end -}}
+        {{- with $featuredimage -}}, {{.}} 1100w{{- end -}}"
+           class="object-fill overflow-hidden rounded-lg ring-4 shadow-lg ring-zinc-300/40 dark:ring-gray-900/40 shadow-neutral-100/20 dark:shadow-neutral-800/40"
+           width="100%" alt="{{ .Params.title }}" />
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+  <!-- " {{.Content}}" pulls from the markdown content of the corresponding _index.md -->
+  <div class="px-6 pt-6 pb-16 mx-auto prose prose-h1:text-2xl dark:text-white">
+    {{.Content}}
+    <style>
+    /* Base Bento and Accordion styles */
+    .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: minmax(min-content, auto);
+        gap: 1.5rem;
+        font-family: inherit;
+        color: var(--color-zinc-800);
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .dark .bento-grid {
+        color: var(--color-zinc-200);
+    }
+
+    .bento-card {
+        background-color: var(--color-white);
+        border: none;
+        border-radius: 0;
+        padding: 1.75rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .bento-card.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .dark .bento-card {
+        background-color: var(--color-zinc-900);
+        border-color: var(--color-zinc-800);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    }
+
+    .bento-card h3 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--color-indigo-600);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .dark .bento-card h3 {
+        color: var(--color-indigo-400);
+    }
+
+    /* Grid alignment */
+    .card-full { grid-column: span 12; }
+    .card-half { grid-column: span 12; }
+    .card-third { grid-column: span 12; }
+    .card-stat { grid-column: span 6; padding: 1.5rem; justify-content: center; }
+    
+    @media (min-width: 768px) {
+        .card-half { grid-column: span 6; }
+        .card-third { grid-column: span 6; }
+        .card-stat { grid-column: span 3; }
+    }
+
+    @media (min-width: 1024px) {
+        .card-third { grid-column: span 4; }
+    }
+
+    .stat-value {
+        font-size: 1.75rem;
+        font-weight: 800;
+        line-height: 1.1;
+        color: var(--color-zinc-900);
+        margin-bottom: 0.5rem;
+    }
+
+    @media (min-width: 1024px) {
+        .stat-value { font-size: 2.25rem; }
+    }
+
+    .dark .stat-value {
+        color: var(--color-white);
+    }
+
+    .stat-label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--color-zinc-500);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    
+    .dark .stat-label {
+        color: var(--color-zinc-400);
+    }
+
+    .text-content {
+        line-height: 1.6;
+        color: var(--color-zinc-700);
+    }
+
+    .dark .text-content {
+        color: var(--color-zinc-300);
+    }
+
+    /* Accordion Styles */
+    .accordion-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .accordion-item {
+        border: none;
+        border-radius: 0;
+        overflow: hidden;
+        background-color: var(--color-zinc-200);
+        transition: all 0.2s ease;
+    }
+
+    .dark .accordion-item {
+        border-color: var(--color-zinc-700);
+        background-color: var(--color-zinc-800);
+    }
+
+    .accordion-header {
+        width: 100%;
+        padding: 1rem 1.25rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1rem;
+        color: var(--color-zinc-900);
+        text-align: left;
+        transition: color 0.2s ease;
+    }
+
+    .dark .accordion-header {
+        color: var(--color-white);
+    }
+
+    .accordion-header:hover {
+        color: var(--color-indigo-600);
+    }
+    
+    .dark .accordion-header:hover {
+        color: var(--color-indigo-400);
+    }
+
+    .accordion-icon {
+        transition: transform 0.3s ease;
+        width: 1.25rem;
+        height: 1.25rem;
+        flex-shrink: 0;
+    }
+
+    .accordion-item.active .accordion-icon {
+        transform: rotate(180deg);
+    }
+
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, padding 0.3s ease;
+        padding: 0 1.25rem;
+        color: var(--color-zinc-600);
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .dark .accordion-content {
+        color: var(--color-zinc-300);
+    }
+
+    .accordion-item.active .accordion-content {
+        padding-bottom: 1.25rem;
+    }
+
+    /* Links */
+    .bento-card a.link-text {
+        color: var(--color-indigo-600);
+        text-decoration: underline;
+        font-weight: 500;
+    }
+
+    .dark .bento-card a.link-text {
+        color: var(--color-indigo-400);
+    }
+
+    .bento-card a.link-text:hover {
+        color: var(--color-indigo-500);
+    }
+
+    /* Shared Inner Card Styling (Links & Winners) */
+    .inner-card-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        height: 100%;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .inner-card-container.horizontal {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 0.75rem;
+        align-items: stretch;
+    }
+
+    @media (min-width: 640px) {
+        .inner-card-container.horizontal {
+        grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .inner-card-container.horizontal {
+        grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    .inner-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        background-color: var(--color-zinc-200);
+        color: var(--color-zinc-700);
+        text-decoration: none;
+        border-radius: 0;
+        font-weight: 600;
+        border: none;
+        transition: all 0.2s ease;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    a.inner-card:hover {
+        background-color: var(--color-indigo-50);
+        color: var(--color-indigo-700);
+        border-color: var(--color-indigo-200);
+        transform: translateX(4px);
+    }
+
+    .inner-card-container.horizontal a.inner-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .dark .inner-card {
+        background-color: var(--color-zinc-800);
+        color: var(--color-zinc-300);
+        border-color: var(--color-zinc-700);
+    }
+
+    .dark a.inner-card:hover {
+        background-color: var(--color-indigo-950);
+        color: var(--color-indigo-300);
+        border-color: var(--color-indigo-800);
+    }
+
+    /* Specifics for Links */
+    .inner-card .arrow {
+        transition: transform 0.2s ease;
+        opacity: 0.5;
+    }
+    
+    a.inner-card:hover .arrow {
+        transform: translateX(4px);
+        opacity: 1;
+    }
+
+    .inner-card-container.horizontal a.inner-card:hover .arrow {
+        transform: translateX(4px);
+    }
+    
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        border-radius: 0;
+        font-size: 0.875rem;
+        font-weight: 600;
+        background-color: transparent;
+        color: var(--color-indigo-600);
+        border: 1px solid var(--color-indigo-600);
+        transition: all 0.2s ease;
+        text-decoration: none;
+    }
+    
+    .badge:hover {
+        background-color: var(--color-indigo-50);
+        border-color: var(--color-indigo-700);
+        color: var(--color-indigo-700);
+        transform: translateY(-2px);
+    }
+
+    .dark .badge {
+        background-color: transparent;
+        color: var(--color-indigo-400);
+        border-color: var(--color-indigo-400);
+    }
+
+    .dark .badge:hover {
+        background-color: var(--color-indigo-950);
+        border-color: var(--color-indigo-300);
+        color: var(--color-indigo-300);
+    }
+    </style>
+
+    <div class="bento-grid">
+
+    <!-- Main Intro -->
+    <div class="bento-card card-full">
+        <h3>Introduction</h3>
+        <div class="text-content" style="font-size: 1.1rem;">
+        <p>We are excited to launch the official Delta SIFY Partner Program (DSPP) for 2027! Schools involved in DSPP will work directly with the Delta SIFY team, with an emphasis on implementing the Delta SIFY training resources to bolster their own extracurricular initiatives. As an added benefit, all Partner Schools will receive a fee waiver to compete in the 2027 UCR Highlander Invitational.</p>
+        <p style="margin-top: 0.5rem;">Below is the list of our current Partner Schools, and we are grateful for their support! If you are interested in becoming a Partner School, please reach out to us at deltasify@gmail.com.</p>
+        </div>
+    </div>
+
+    <!-- Row 1 -->
+    <div class="bento-card card-third flex flex-col items-center text-center">
+        <div class="w-full mb-4">
+            <img src="/images/site-logo.svg" class="object-cover w-full h-auto shadow-xl aspect-square rounded-lg" alt="SCHOOL_NAME" loading="lazy" />
+        </div>
+        <h3 style="margin-bottom: 0; justify-content: center; width: 100%;">SCHOOL_NAME</h3>
+    </div>
+    <div class="bento-card card-third flex flex-col items-center text-center">
+        <div class="w-full mb-4">
+            <img src="/images/site-logo.svg" class="object-cover w-full h-auto shadow-xl aspect-square rounded-lg" alt="SCHOOL_NAME" loading="lazy" />
+        </div>
+        <h3 style="margin-bottom: 0; justify-content: center; width: 100%;">SCHOOL_NAME</h3>
+    </div>
+    <div class="bento-card card-third flex flex-col items-center text-center">
+        <div class="w-full mb-4">
+            <img src="/images/site-logo.svg" class="object-cover w-full h-auto shadow-xl aspect-square rounded-lg" alt="SCHOOL_NAME" loading="lazy" />
+        </div>
+        <h3 style="margin-bottom: 0; justify-content: center; width: 100%;">SCHOOL_NAME</h3>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="bento-card card-third flex flex-col items-center text-center">
+        <div class="w-full mb-4">
+            <img src="/images/site-logo.svg" class="object-cover w-full h-auto shadow-xl aspect-square rounded-lg" alt="SCHOOL_NAME" loading="lazy" />
+        </div>
+        <h3 style="margin-bottom: 0; justify-content: center; width: 100%;">SCHOOL_NAME</h3>
+    </div>
+    <div class="bento-card card-third flex flex-col items-center text-center">
+        <div class="w-full mb-4">
+            <img src="/images/site-logo.svg" class="object-cover w-full h-auto shadow-xl aspect-square rounded-lg" alt="SCHOOL_NAME" loading="lazy" />
+        </div>
+        <h3 style="margin-bottom: 0; justify-content: center; width: 100%;">SCHOOL_NAME</h3>
+    </div>
+    <div class="bento-card card-third flex flex-col items-center text-center">
+        <div class="w-full mb-4">
+            <img src="/images/site-logo.svg" class="object-cover w-full h-auto shadow-xl aspect-square rounded-lg" alt="SCHOOL_NAME" loading="lazy" />
+        </div>
+        <h3 style="margin-bottom: 0; justify-content: center; width: 100%;">SCHOOL_NAME</h3>
+    </div>
+
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Bento card animations
+        const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            setTimeout(() => {
+                entry.target.style.transitionDelay = '0s';
+                entry.target.style.transition = 'all 0.2s ease';
+            }, 600);
+            observer.unobserve(entry.target);
+            }
+        });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.bento-card').forEach((card, index) => {
+        card.style.transitionDelay = `${(index % 4) * 0.1}s`;
+        observer.observe(card);
+        });
+
+        // Accordion logic
+        const accordions = document.querySelectorAll('.accordion-header');
+
+        function toggleAccordion(item, content, forceState) {
+        if (forceState === 'expand') {
+            item.classList.add('active');
+            content.style.maxHeight = content.scrollHeight + 40 + "px";
+        } else if (forceState === 'collapse') {
+            item.classList.remove('active');
+            content.style.maxHeight = null;
+        } else {
+            item.classList.toggle('active');
+            if (item.classList.contains('active')) {
+            content.style.maxHeight = content.scrollHeight + 40 + "px";
+            } else {
+            content.style.maxHeight = null;
+            }
+        }
+        }
+
+        accordions.forEach(acc => {
+        acc.addEventListener('click', function() {
+            const item = this.parentElement;
+            const content = this.nextElementSibling;
+            toggleAccordion(item, content);
+        });
+        });
+
+        const expandAllBtn = document.getElementById('expand-all-btn');
+        const collapseAllBtn = document.getElementById('collapse-all-btn');
+
+        if (expandAllBtn && collapseAllBtn) {
+        expandAllBtn.addEventListener('click', () => {
+            accordions.forEach(acc => {
+            const item = acc.parentElement;
+            const content = acc.nextElementSibling;
+            toggleAccordion(item, content, 'expand');
+            });
+        });
+
+        collapseAllBtn.addEventListener('click', () => {
+            accordions.forEach(acc => {
+            const item = acc.parentElement;
+            const content = acc.nextElementSibling;
+            toggleAccordion(item, content, 'collapse');
+            });
+        });
+        }
+    });
+    </script>
+  </div>
+</article>
+{{end}}
