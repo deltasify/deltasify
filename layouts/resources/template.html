@@ -132,6 +132,30 @@
         color: var(--color-zinc-300);
     }
 
+    /* Syllabus Grid */
+    .syllabus-header-row {
+        padding: 0 1.25rem 0.5rem 1.25rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 700;
+        color: var(--color-zinc-500);
+        border-bottom: 1px solid var(--color-zinc-300);
+    }
+    .dark .syllabus-header-row {
+        color: var(--color-zinc-400);
+        border-color: var(--color-zinc-700);
+    }
+    .syllabus-grid {
+        display: grid;
+        grid-template-columns: 10% 30% 60%;
+        gap: 1rem;
+        flex: 1;
+        padding-right: 1rem;
+        align-items: center;
+        text-align: left;
+    }
+
     /* Accordion Styles */
     .accordion-container {
         display: flex;
@@ -354,10 +378,10 @@
         </div>
     </div>
 
-    <!-- FAQ Accordion -->
+    <!-- Event Syllabus Accordion -->
     <div class="bento-card card-full">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
-        <h3 style="margin-bottom: 0;">Frequently Asked Questions</h3>
+        <h3 style="margin-bottom: 0;">Event Syllabus</h3>
         <div style="display: flex; gap: 0.75rem;">
             <button id="expand-all-btn" class="badge" style="cursor: pointer; appearance: none; outline: none; font-family: inherit;">Expand All</button>
             <button id="collapse-all-btn" class="badge" style="cursor: pointer; appearance: none; outline: none; font-family: inherit;">Collapse All</button>
@@ -365,120 +389,275 @@
         </div>
         
     <div class="accordion-container">
+        <div class="syllabus-header-row">
+            <div class="syllabus-grid">
+                <span>ID</span>
+                <span>Week</span>
+                <span>Agenda</span>
+            </div>
+            <div style="width: 1.25rem; flex-shrink: 0;"></div>
+        </div>
+
         <div class="accordion-item">
         <button class="accordion-header">
-            Is there an official coach training?
+            <div class="syllabus-grid">
+                <span>01</span>
+                <span>Week #1 (9/15 to 9/19)</span>
+                <span>Rules, Atbash & Caesar Ciphers</span>
+            </div>
             <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </button>
         <div class="accordion-content">
-            <p>We don't have an official training to be a coach. But there are resources on the "coaching resource" tab of our website.</p>
-            <p style="margin-top: 0.5rem;">Additionally, some events ARE continued (likely with some modifications). So you may be able to utilize material from previous year's coach material.</p>
-            <p style="margin-top: 0.5rem;">Lastly, if you really struggle to make lessons, feel free to <a href="mailto:nvu042@ucr.edu" target="_blank" class="link-text">nvu042@ucr.edu</a> me or we can schedule a virtual / in person at ucr meeting to talk about it.</p>
-        </div>
-        </div>
-        <div class="accordion-item">
-        <button class="accordion-header">
-            What is the Event Folder?
-            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-        </button>
-        <div class="accordion-content">
-            <p>Each event will have a folder and team document; this will be shared with you on Google Drive after you are confirmed for an event.</p>
-            <p style="margin-top: 0.5rem;">The folder is a place for you and team members to store resources, create notes documents and anything else that suits your team’s needs. The team document has the standing Google Meet link (for virtual meetings), a place to put questions and resources needed, and a practice log.</p>
-        </div>
-        </div>
-        <div class="accordion-item">
-        <button class="accordion-header">
-            What if I have not gain access to event folder by the time I start coaching?
-            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-        </button>
-        <div class="accordion-content">
-            <p>Let Michael <a href="mailto:mtin@riversideunified.org" target="_blank" class="link-text">mtin@riversideunified.org</a> and Nam <a href="mailto:nvu042@ucr.edu" target="_blank" class="link-text">nvu042@ucr.edu</a> know immediately</p>
-        </div>
-        </div>
-        <div class="accordion-item">
-        <button class="accordion-header">
-            Why do practice tests?
-            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-        </button>
-        <div class="accordion-content">
-            <p>The open-ended nature of the science Olympiad means that trying to give in depth lecture that cover all possible content is very difficult.</p>
-            <p style="margin-top: 0.5rem;">Doing practice tests will give students practice with the vast variety of possible testing questions and help highlight where they struggle, which allow you to correct any misunderstanding they have.</p>
+            <div style="padding-bottom: 1.25rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Today’s Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>Review <a href="https://drive.google.com/file/d/10b8rMUgXUc9IOMTpha_3xvtvFTzzFFq7/view?usp=sharing" target="_blank" class="link-text">rules</a> and preview <a href="https://drive.google.com/file/d/1p_lc5az4-kGcj9382v1ko_nhWrDw-M5M/view?usp=sharing" target="_blank" class="link-text">reference sheet</a></li>
+                    <li>Watch Atbash and Caesar cipher videos</li>
+                    <li>Research “<a href="https://youtu.be/atU0V98NCKc" target="_blank" class="link-text">Atbash</a>” or “<a href="https://youtu.be/MNuObJNcMjo" target="_blank" class="link-text">Caesar</a>” cipher example videos if you need additional help understanding</li>
+                    <li><a href="https://docs.google.com/document/d/1Gjg0X9uJEQrEVg-U-WWna9YsspkKUGdxPUt0KppD8HA/edit?usp=sharing" target="_blank" class="link-text">Atbash practice</a></li>
+                    <li><a href="https://docs.google.com/document/d/1uXpGPMIj-Y3RDNQzH7XP_wxx7kzjZP2agFgUjFqg7ps/edit?usp=sharing" target="_blank" class="link-text">Caesar practice</a></li>
+                </ul>
+                <p style="margin-bottom: 0.5rem;"><strong>Homework Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li><a href="https://drive.google.com/file/d/1rD4X9dzQj_-PhXRxBN2nFnKFJtIJ-Q8U/view?usp=sharing" target="_blank" class="link-text">Crypto Challenge Section 1, 2, 3</a></li>
+                </ul>
+            </div>
         </div>
         </div>
         <div class="accordion-item">
         <button class="accordion-header">
-            Where can I find practice test and lecture resources?
+            <div class="syllabus-grid">
+                <span>02</span>
+                <span>Week #2 (9/22 to 9/26)</span>
+                <span>Substitution & Aristocrat Ciphers</span>
+            </div>
             <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </button>
         <div class="accordion-content">
-            <p><a href="https://www.soinc.org/events/2026-division-b-events" target="_blank" class="link-text">https://www.soinc.org/events/2026-division-b-events</a> : Each event has "Practice problem and test section". And "Resources & Links" (lecture material)</p>
-            <p style="margin-top: 0.5rem;"><a href="https://scioly.org/wiki" target="_blank" class="link-text">https://scioly.org/wiki</a> : Clicking on events give you "wikipedia" of event (may not be detailed). Clck on "Test Exchange" or "Test Archive" under scioly.org resources for practice tests</p>
-            <p style="margin-top: 0.5rem;">You may consider using ChatGPT or other AI tools to explain material and helping to come with practice questions.</p>
-            <p style="margin-top: 0.5rem;">You will given an event folder containing previous coaches' material <em>*Not all events has previous material*</em></p>
+            <div style="padding-bottom: 1.25rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Today’s Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>Review <a href="https://docs.google.com/document/d/1OgLvYcVyWM1HiQHZ_uziAj3P6yy6O9DyjcZnR9_fKR4/edit?usp=sharing" target="_blank" class="link-text">Substitution Cipher Techniques</a></li>
+                    <li>Watch <a href="https://youtu.be/0Mbn1ZhlVSs" target="_blank" class="link-text">Aristocrat cipher video</a></li>
+                    <li>Research “Aristocrat cipher example” videos if you need additional help understanding</li>
+                    <li><a href="https://docs.google.com/document/d/1_sRlZFwA39f_jS3mkvT94hVe-7AbUjHxHPyy5cOmxXY/edit?usp=sharing" target="_blank" class="link-text">Aristocrat practice</a></li>
+                </ul>
+                <p style="margin-bottom: 0.5rem;"><strong>Homework Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li><a href="https://docs.google.com/document/d/1WB7yl5hQH4qfs37QdZKUuObBX2mNzhUtqu6m9LkVdJg/edit?usp=sharing" target="_blank" class="link-text">Practice \#1</a></li>
+                </ul>
+            </div>
         </div>
         </div>
         <div class="accordion-item">
         <button class="accordion-header">
-            How do I get comfortable with coaching? How do I get kids to become comfortable with me coaching them?
+            <div class="syllabus-grid">
+                <span>03</span>
+                <span>Week #3 (9/30 to 10/3)</span>
+                <span>Solving Methods & Efficiency</span>
+            </div>
             <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </button>
         <div class="accordion-content">
-            <p>You should get to know each other through ice breaker games and conversational starter (Example attached).</p>
-            <p style="margin-top: 0.5rem;">Some kids are more outgoing than others, and students on your team may not even feel the most comfortable with each other at first. If things are a bit awkward at first, give it some time!</p>
+            <div style="padding-bottom: 1.25rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Today’s Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>HW Review and discussion</li>
+                    <li>Think about solving methods and efficiency strategies</li>
+                </ul>
+                <p style="margin-bottom: 0.5rem;"><strong>Homework Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li><a href="https://docs.google.com/document/d/12yShCrSkjo8sfkdzqEqFIyCdtcrARfAhKkJ30grboSM/edit?usp=sharing" target="_blank" class="link-text">Practice \#2</a></li>
+                </ul>
+            </div>
         </div>
         </div>
         <div class="accordion-item">
         <button class="accordion-header">
-            What are some first meeting ideas?
+            <div class="syllabus-grid">
+                <span>04</span>
+                <span>Week #4 (10/6 to 10/10)</span>
+                <span>Intro to K1 Cipher</span>
+            </div>
             <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </button>
         <div class="accordion-content">
-            <p>Introductions: Share a little about yourself and ask the kids to share some things about themselves</p>
-            <p style="margin-top: 0.5rem;">Rules: Read over the rules and discuss any previous experience (or lack of experience) you and the students have in the area. Make clear some basic behavior expectations.</p>
-            <p style="margin-top: 0.5rem;">Lecture: Get started right away by diving into some basic concepts</p>
+            <div style="padding-bottom: 1.25rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Today’s Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>HW Review and discussion</li>
+                    <li>Think about solving methods and efficiency strategies</li>
+                    <li>Intro to K1 and some <a href="https://docs.google.com/document/d/1fa1AUGXF8nqiHyhvnOkpsGUaNSABjHh9R_SGQZiRbyc/edit?usp=sharing" target="_blank" class="link-text">review/practice</a> (Search up K1 cipher videos online or web pages)</li>
+                </ul>
+                <p style="margin-bottom: 0.5rem;"><strong>Homework Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li><a href="https://docs.google.com/document/d/1PGG5gqe5Tks7CRdF5YOlcSlRVM3S1f483MyQFd6NJj4/edit?usp=sharing" target="_blank" class="link-text">Practice \#3</a></li>
+                </ul>
+            </div>
         </div>
         </div>
         <div class="accordion-item">
         <button class="accordion-header">
-            Should coaches plan out time to make a study guide near competition time?
+            <div class="syllabus-grid">
+                <span>05</span>
+                <span>Week #5 (10/14 to 10/18)</span>
+                <span>Complete Columnar Transposition Cipher</span>
+            </div>
             <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </button>
         <div class="accordion-content">
-            <p>It is recommend for coaches to guide students (instead of directly doing it for them) toward making a study guide to help students review the material. Additionally, some events allow for cheat sheets (double check the event parameter in the rule book).</p>
+            <div style="padding-bottom: 1.25rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Today’s Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>HW Review <a href="https://docs.google.com/document/d/1PGG5gqe5Tks7CRdF5YOlcSlRVM3S1f483MyQFd6NJj4/edit?usp=sharing" target="_blank" class="link-text">answers</a> and discuss</li>
+                    <li>Watch these videos to learn the “Complete Columnar Transposition Cipher” <a href="https://www.youtube.com/watch?v=I1uDv3mBp2U" target="_blank" class="link-text">Intro</a>  <a href="https://www.youtube.com/watch?v=1B0jcTXeFMA" target="_blank" class="link-text">Example</a></li>
+                    <li><a href="https://docs.google.com/document/d/1TvApDuYwMG32xtpGTaUSmM-hUUhLD2Gwe-vpKjlXNtw/edit?usp=sharing" target="_blank" class="link-text">Columnar Practice</a></li>
+                </ul>
+                <p style="margin-bottom: 0.5rem;"><strong>Homework Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li><a href="https://docs.google.com/document/d/18E7_l5w3N0CTnTnVksQczSKDf2gNd3pFhFe86R8LnXs/edit?usp=sharing" target="_blank" class="link-text">Practice \#4</a></li>
+                </ul>
+            </div>
         </div>
         </div>
         <div class="accordion-item">
         <button class="accordion-header">
-            How do I plan out a coaching schedule?
+            <div class="syllabus-grid">
+                <span>06</span>
+                <span>Week #6 (10/20 to 10/24)</span>
+                <span>Baconian Cipher</span>
+            </div>
             <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </button>
         <div class="accordion-content">
-            <p><strong>Update later</strong></p>
-            <p style="margin-top: 0.5rem;"><a href="https://docs.google.com/document/d/1u0e51L5E215jtPuNNbn_vgKAHUnftfyRt_EHnyj_TNY/edit?tab=t.0" target="_blank" class="link-text">https://docs.google.com/document/d/1u0e51L5E215jtPuNNbn_vgKAHUnftfyRt_EHnyj_TNY/edit?tab=t.0</a></p>
+            <div style="padding-bottom: 1.25rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Today’s Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>HW Review <a href="https://docs.google.com/document/d/18E7_l5w3N0CTnTnVksQczSKDf2gNd3pFhFe86R8LnXs/edit?usp=sharing" target="_blank" class="link-text">answers</a> and discuss</li>
+                    <li>Watch this video to learn the Baconian Cipher <a href="https://www.youtube.com/watch?v=ga_zcVxh2Fg" target="_blank" class="link-text">Baconian Cipher Video</a></li>
+                    <li><a href="https://docs.google.com/document/d/1vveoUMNAG0ICGZasgYZLiZOMx3kyBq0ax_x9rtiW5ts/edit?usp=sharing" target="_blank" class="link-text">Baconian Practice</a></li>
+                </ul>
+                <p style="margin-bottom: 0.5rem;"><strong>Homework Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li><a href="https://docs.google.com/document/d/1Bwqdt45_uaeSDYEPZzM63col5e5vCDdhx9ZRAzllphw/edit?usp=sharing" target="_blank" class="link-text">Practice \#5</a></li>
+                </ul>
+            </div>
         </div>
         </div>
         <div class="accordion-item">
         <button class="accordion-header">
-            What are some general ideas for lessons?
+            <div class="syllabus-grid">
+                <span>07</span>
+                <span>Week #7 (11/3 to 11/7)</span>
+                <span>Real-Time Practice Test</span>
+            </div>
             <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </button>
         <div class="accordion-content">
-            <p>-Quiz to review last week’s concepts: print out practice tests, kids quiz each other on notes they have taken, asking questions as conduct lab, etc..</p>
-            <p style="margin-top: 0.5rem;">-Have students do and then share research</p>
-            <p style="margin-top: 0.5rem;">-Lecture on a topic</p>
-            <p style="margin-top: 0.5rem;">-Go over homework for the week.</p>
-            <p style="margin-top: 0.5rem;">-Doing worksheet as team, pair of two or individually.</p>
-            <p style="margin-top: 0.5rem;">-Create study materials: information summaries, flashcards, mind maps.</p>
+            <div style="padding-bottom: 1.25rem;">
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>Today, we will take a real-time practice test! Some ciphers we have not covered yet, it is okay to skip around. See how many the team can solve in 50 minutes! <a href="https://drive.google.com/file/d/1s1k93UQ_7eSO01kRxJTnnQ5WUYLKtwKQ/view?usp=drive_link" target="_blank" class="link-text">Wash U 2024 Practice Test</a> <a href="https://drive.google.com/file/d/1zeKBARH-64gi4otUMxyqSJgiUoTCzBdm/view?usp=drive_link" target="_blank" class="link-text">Answers</a></li>
+                </ul>
+            </div>
         </div>
         </div>
         <div class="accordion-item">
         <button class="accordion-header">
-            What are some extra coaching ideas?
+            <div class="syllabus-grid">
+                <span>08</span>
+                <span>Week #8 (11/10 to 11/14)</span>
+                <span>Porta Cipher</span>
+            </div>
             <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </button>
         <div class="accordion-content">
-            <p><a href="https://docs.google.com/document/d/1H3Mh1Dg7yvEvJKl-k2qzCdUnQhxvuWPu8pBrwl_IoHs/edit?tab=t.0" target="_blank" class="link-text">https://docs.google.com/document/d/1H3Mh1Dg7yvEvJKl-k2qzCdUnQhxvuWPu8pBrwl_IoHs/edit?tab=t.0</a></p>
-            <p style="margin-top: 0.5rem;">Extra coaching ideas if you are interested. I will continue to add more ideas when I find them.</p>
+            <div style="padding-bottom: 1.25rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Today’s Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>HW Review <a href="https://docs.google.com/document/d/1Bwqdt45_uaeSDYEPZzM63col5e5vCDdhx9ZRAzllphw/edit?usp=sharing" target="_blank" class="link-text">answers</a> and discuss</li>
+                    <li>Watch this video to learn the Porta Cipher <a href="https://www.youtube.com/watch?v=XjlblVwO9vo&t=258s" target="_blank" class="link-text">Porta Cipher Video</a></li>
+                    <li><a href="https://docs.google.com/document/d/1hKMxsczbYR-YFACIQ3HoMxnH-IguTxV4guC_KKp3Sck/edit?usp=sharing" target="_blank" class="link-text">Porta Cipher Practice</a></li>
+                </ul>
+                <p style="margin-bottom: 0.5rem;"><strong>Homework Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li><a href="https://docs.google.com/document/d/1BF0RriXlKCzit5nkoHqrxMYoukcdK-iTUuH5yF1tztc/edit?usp=sharing" target="_blank" class="link-text">Practice \#6</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class="accordion-item">
+        <button class="accordion-header">
+            <div class="syllabus-grid">
+                <span>09</span>
+                <span>Week #9 (11/17 to 11/21)</span>
+                <span>Nihilist Cipher</span>
+            </div>
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="accordion-content">
+            <div style="padding-bottom: 1.25rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Today’s Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>HW Review <a href="https://docs.google.com/document/d/1BF0RriXlKCzit5nkoHqrxMYoukcdK-iTUuH5yF1tztc/edit?usp=sharing" target="_blank" class="link-text">answers</a> and discuss</li>
+                    <li>Watch this video to learn the Nihilist Cipher <a href="https://www.youtube.com/watch?v=BXwY_NMzIRw" target="_blank" class="link-text">Nihilist Cipher Video</a></li>
+                    <li><a href="https://docs.google.com/document/d/1P0iW_kzQyQVD5wqatnzgQ_1OWlnz_MifqvpDoA2KgH0/edit?usp=sharing" target="_blank" class="link-text">Nihilist Cipher Practice</a></li>
+                </ul>
+                <p style="margin-bottom: 0.5rem;"><strong>Homework Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li><a href="https://docs.google.com/document/d/1gbCke1CqC8vBsX45BIvBs7-y1c06Vu8stpmCpapOofU/edit?usp=sharing" target="_blank" class="link-text">Practice \#7</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class="accordion-item">
+        <button class="accordion-header">
+            <div class="syllabus-grid">
+                <span>10</span>
+                <span>Week #10 (12/1 to 12/5)</span>
+                <span>Affine Cipher</span>
+            </div>
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="accordion-content">
+            <div style="padding-bottom: 1.25rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Today’s Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>HW Review <a href="https://docs.google.com/document/d/1gbCke1CqC8vBsX45BIvBs7-y1c06Vu8stpmCpapOofU/edit?usp=sharing" target="_blank" class="link-text">answers</a> and discuss</li>
+                    <li>Watch this video to learn the Affine Cipher <a href="https://www.youtube.com/watch?v=b86ymP-SGPk" target="_blank" class="link-text">Affine Cipher Video</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=iyESl17IqFQ" target="_blank" class="link-text">Affine Encryption & Decryption Video</a></li>
+                    <li><a href="https://docs.google.com/document/d/1sPbI12I38iwBHBKiv3pXKL-fi1RwDrn8Z1wAP4Zn3ts/edit?usp=sharing" target="_blank" class="link-text">Affine Cipher Practice</a></li>
+                </ul>
+                <p style="margin-bottom: 0.5rem;"><strong>Homework Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li><a href="https://docs.google.com/document/d/1lwgvCmojVEp8z1X9F3albiqHCR--VWkK1j9FE2i5jiA/edit?usp=sharing" target="_blank" class="link-text">Practice \#8</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class="accordion-item">
+        <button class="accordion-header">
+            <div class="syllabus-grid">
+                <span>11</span>
+                <span>Week #11 (12/8 to 12/12)</span>
+                <span>Cryptarithm Cipher</span>
+            </div>
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="accordion-content">
+            <div style="padding-bottom: 1.25rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Today’s Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>HW Review <a href="https://docs.google.com/document/d/1lwgvCmojVEp8z1X9F3albiqHCR--VWkK1j9FE2i5jiA/edit?usp=sharing" target="_blank" class="link-text">answers</a> and discuss</li>
+                    <li>Watch these videos to learn the Cryptarithm Cipher. <a href="https://www.youtube.com/watch?v=qwikGHbIbwM" target="_blank" class="link-text">Intro Cryptarithm</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=68_qLqoCqWo" target="_blank" class="link-text">Addition Example \#1</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=ZZV_xyFJWxQ" target="_blank" class="link-text">Addition Example \#2</a></li>
+                    <li>Cryptarithm Practice</li>
+                </ul>
+                <p style="margin-bottom: 0.5rem;"><strong>Homework Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>None</li>
+                </ul>
+            </div>
         </div>
         </div>
     </div>
