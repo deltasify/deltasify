@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main>
     <div class="bg-gray-200 dark:bg-gray-900">
-        <div class="px-4 py-8 mx-auto max-w-screen-xl">
+        <div class="px-4 py-8 mx-auto home-width">
             <div class="grid gap-8 items-center mb-8 sm:mb-0 lg:gap-12 lg:grid-cols-12">
                 <div class="col-span-6 px-4 text-center sm:mb-6 lg:text-left lg:mb-0">
                     <h1 class="mb-2 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl xl:text-6xl dark:text-white">
@@ -49,7 +49,7 @@
     </div>
     <!-- More main page content here... -->
 
-    <div class="relative px-4 py-8 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="relative px-4 py-8 mx-auto home-width sm:px-6 lg:px-8">
         <div class="bento-grid">
             <!-- Card 1 -->
             <div class="bento-card card-full flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 items-stretch fade-in-section">
@@ -72,7 +72,7 @@
                         </p>
                         {{ end }}
                     </div>
-                    <a href="#" target="_blank" class="badge" style="cursor: pointer; appearance: none; outline: none; font-family: inherit; margin-top: auto; align-self: flex-start;" rel="noopener noreferrer">Learn More</a>
+                    <a href="/initiatives/invitational" class="badge" style="cursor: pointer; appearance: none; outline: none; font-family: inherit; margin-top: auto; align-self: flex-start;">Learn More</a>
                 </div>
             </div>
 
@@ -97,7 +97,7 @@
                         </p>
                         {{ end }}
                     </div>
-                    <a href="#" target="_blank" class="badge" style="cursor: pointer; appearance: none; outline: none; font-family: inherit; margin-top: auto; align-self: flex-start;" rel="noopener noreferrer">Learn More</a>
+                    <a href="/initiatives/scioly-coaching" class="badge" style="cursor: pointer; appearance: none; outline: none; font-family: inherit; margin-top: auto; align-self: flex-start;">Learn More</a>
                 </div>
             </div>
 
@@ -122,7 +122,7 @@
                         </p>
                         {{ end }}
                     </div>
-                    <a href="#" target="_blank" class="badge" style="cursor: pointer; appearance: none; outline: none; font-family: inherit; margin-top: auto; align-self: flex-start;" rel="noopener noreferrer">Learn More</a>
+                    <a href="/initiatives/math-mentoring" class="badge" style="cursor: pointer; appearance: none; outline: none; font-family: inherit; margin-top: auto; align-self: flex-start;">Learn More</a>
                 </div>
             </div>
         </div>
@@ -161,11 +161,30 @@
     */}}
 
     {{/* Newsletter signup section */}}
+    {{/*
     <div class="fade-in-section">
         {{ partial "newsletter.html" . }}
     </div>
+    */}}
 
     <style>
+    /* Responsive homepage wrapper */
+    .home-width {
+        width: 100%;
+        max-width: 100%;
+    }
+    @media (min-width: 1024px) {
+        .home-width {
+            max-width: 80%;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+        .hero-container, .hero-image {
+            margin-left: auto !important;
+            margin-right: 0 !important;
+        }
+    }
+
     /* Base Bento styles from scioly-coaching */
     .bento-grid {
         display: grid;

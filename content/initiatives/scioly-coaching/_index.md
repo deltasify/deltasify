@@ -5,7 +5,6 @@ draft: false
 language: en
 description: Science Olympiad Coaching Program (SOCP)
 # featured_image: ../assets/images/featured/scioly-recruitment-25.png
-featured_image:
 type: initiatives
 layout: scioly-coaching
 ---

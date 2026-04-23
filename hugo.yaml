@@ -51,7 +51,7 @@ params:
   author: Delta SIFY
   authorimage: ../assets/images/global/author.webp
   og_image: /images/tailbliss-cover.png
-  moto: "Change in Scientific Importance for Youth (Est. 2014)"
+  moto: "Change in Scientific Importance for Youth"
   description: "Change in Scientific Importance for Youth, also known as \"Delta SIFY,\" is a movement intended to provide immersive educational opportunities for students in underserved communities to explore the fields of STEM. We believe that access to a quality, fulfilling education should be a fundamental human right, not a privilege."
   disable_theme_toggle: false
   disable_stay_uptodate: true
