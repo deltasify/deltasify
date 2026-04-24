@@ -1,4 +1,4 @@
-baseURL: 'http://localhost:1313/'
+baseURL: 'https://www.deltasify.org/'
 title: Delta SIFY
 languageCode: en-us
 theme: tailbliss
