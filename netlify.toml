@@ -5,7 +5,4 @@ TZ = "America/Los_Angeles"
 
 [build]
 publish = "public"
-command = """\
-  git config core.quotepath false && \
-  hugo build --gc --minify --baseURL "${URL}"
-  """
+command = "git config core.quotepath false && hugo build --gc --minify --baseURL ${URL}"
