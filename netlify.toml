@@ -1,0 +1,11 @@
+[build.environment]
+HUGO_VERSION = "0.160.0"
+NODE_VERSION = "24.14.1"
+TZ = "America/Los_Angeles"
+
+[build]
+publish = "public"
+command = """\
+  git config core.quotepath false && \
+  hugo build --gc --minify --baseURL "${URL}"
+  """
