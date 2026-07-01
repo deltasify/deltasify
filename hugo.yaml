@@ -104,23 +104,6 @@ params:
 
 menu:
   main:
-    - identifier: initiatives
-      pre: dropdown
-      name: Initiatives
-      weight: 10
-    - identifier: resources
-      name: Resources
-      url: /resources/
-      weight: 20
-    - identifier: our-partners
-      name: Our Partners
-      url: /our-partners/
-      weight: 30
-    - identifier: archive
-      name: Archive
-      url: /archive/
-      weight: 40
-  initiatives:
     - identifier: invitational
       name: UCR Highlander Invitational
       url: /initiatives/invitational/
@@ -133,6 +116,10 @@ menu:
       name: MathCounts Mentoring Program (MMP)
       url: /initiatives/math-mentoring/
       weight: 30
+    - identifier: archive
+      name: Archive
+      url: /archive/
+      weight: 40
   footer:
     -
     

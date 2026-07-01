@@ -1,0 +1,746 @@
+{{define "main"}}
+<article>
+  <header class="mb-4 bg-primary-600">
+    <span class="py-96">
+      <h1 class="py-16 text-5xl font-black text-center text-white capitalize">
+        {{ .Title }}
+      </h1>
+    </span>
+  </header>
+  <div class="mx-auto mt-8 mb-2" style="max-width: 80%;">
+    <div class="px-6">
+      {{ with .Params.featured_image }}
+      {{ with resources.Get . }}
+      {{ $small := (.Resize "400x webp q80").RelPermalink }}
+      {{ $medium := (.Resize "550x webp q80").RelPermalink }}
+      {{ $large := (.Resize "900x webp q80").RelPermalink }}
+      {{ $featuredimage := (.Resize "1500x webp q80").RelPermalink }}
+      <img src="{{ $featuredimage }}" srcset="
+        {{- with $small -}}, {{.}} 400w{{- end -}}
+        {{- with $medium -}}, {{.}} 550w{{- end -}}
+        {{- with $large -}}, {{.}} 768w{{- end -}}
+        {{- with $featuredimage -}}, {{.}} 1100w{{- end -}}"
+           class="object-fill overflow-hidden rounded-lg ring-4 shadow-lg ring-zinc-300/40 dark:ring-gray-900/40 shadow-neutral-100/20 dark:shadow-neutral-800/40"
+           width="100%" alt="{{ .Params.title }}" />
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+  <!-- " {{.Content}}" pulls from the markdown content of the corresponding _index.md -->
+  <div class="px-6 pt-6 pb-16 mx-auto prose prose-h1:text-2xl dark:text-white">
+    {{.Content}}
+    <style>
+    /* Base Bento and Accordion styles */
+    .tabular-nums {
+        font-variant-numeric: tabular-nums;
+        font-feature-settings: "tnum" 1, "kern" 0;
+        font-kerning: none;
+    }
+    .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: minmax(min-content, auto);
+        gap: 1.5rem;
+        font-family: inherit;
+        color: var(--color-zinc-800);
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .dark .bento-grid {
+        color: var(--color-zinc-200);
+    }
+
+    .bento-card {
+        background-color: var(--color-white);
+        border: none;
+        border-radius: 0;
+        padding: 1.75rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .bento-card.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .dark .bento-card {
+        background-color: var(--color-zinc-900);
+        border-color: var(--color-zinc-800);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    }
+
+    .bento-card h3 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--color-indigo-600);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .dark .bento-card h3 {
+        color: var(--color-indigo-400);
+    }
+
+    /* Grid alignment */
+    .card-full { grid-column: span 12; }
+    .card-half { grid-column: span 12; }
+    .card-stat { grid-column: span 6; padding: 1.5rem; justify-content: center; }
+    
+    @media (min-width: 768px) {
+        .card-half { grid-column: span 6; }
+        .card-stat { grid-column: span 3; }
+    }
+
+    .stat-value {
+        font-size: 1.75rem;
+        font-weight: 800;
+        line-height: 1.1;
+        color: var(--color-zinc-900);
+        margin-bottom: 0.5rem;
+    }
+
+    @media (min-width: 1024px) {
+        .stat-value { font-size: 2.25rem; }
+    }
+
+    .dark .stat-value {
+        color: var(--color-white);
+    }
+
+    .stat-label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--color-zinc-500);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    
+    .dark .stat-label {
+        color: var(--color-zinc-400);
+    }
+
+    .text-content {
+        line-height: 1.6;
+        color: var(--color-zinc-700);
+    }
+
+    .dark .text-content {
+        color: var(--color-zinc-300);
+    }
+
+    /* Syllabus Grid */
+    .syllabus-header-row {
+        padding: 0 1.25rem 0.5rem 1.25rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 700;
+        color: var(--color-zinc-500);
+        border-bottom: 1px solid var(--color-zinc-300);
+    }
+    .dark .syllabus-header-row {
+        color: var(--color-zinc-400);
+        border-color: var(--color-zinc-700);
+    }
+    .syllabus-grid {
+        display: grid;
+        grid-template-columns: 10% 30% 60%;
+        gap: 1rem;
+        flex: 1;
+        padding-right: 1rem;
+        align-items: center;
+        text-align: left;
+    }
+
+    /* Accordion Styles */
+    .accordion-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .accordion-item {
+        border: none;
+        border-radius: 0;
+        overflow: hidden;
+        background-color: var(--color-zinc-200);
+        transition: all 0.2s ease;
+    }
+
+    .dark .accordion-item {
+        border-color: var(--color-zinc-700);
+        background-color: var(--color-zinc-800);
+    }
+
+    .accordion-header {
+        width: 100%;
+        padding: 1rem 1.25rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1rem;
+        color: var(--color-zinc-900);
+        text-align: left;
+        transition: color 0.2s ease;
+    }
+
+    .dark .accordion-header {
+        color: var(--color-white);
+    }
+
+    .accordion-header:hover {
+        color: var(--color-indigo-600);
+    }
+    
+    .dark .accordion-header:hover {
+        color: var(--color-indigo-400);
+    }
+
+    .accordion-icon {
+        transition: transform 0.3s ease;
+        width: 1.25rem;
+        height: 1.25rem;
+        flex-shrink: 0;
+    }
+
+    .accordion-item.active .accordion-icon {
+        transform: rotate(180deg);
+    }
+
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, padding 0.3s ease;
+        padding: 0 1.25rem;
+        color: var(--color-zinc-600);
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .dark .accordion-content {
+        color: var(--color-zinc-300);
+    }
+
+    .accordion-item.active .accordion-content {
+        padding-bottom: 1.25rem;
+    }
+
+    /* Links */
+    .bento-card a.link-text {
+        color: var(--color-indigo-600);
+        text-decoration: underline;
+        font-weight: 500;
+    }
+
+    .dark .bento-card a.link-text {
+        color: var(--color-indigo-400);
+    }
+
+    .bento-card a.link-text:hover {
+        color: var(--color-indigo-500);
+    }
+
+    /* Shared Inner Card Styling (Links & Winners) */
+    .inner-card-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        height: 100%;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .inner-card-container.horizontal {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 0.75rem;
+        align-items: stretch;
+    }
+
+    @media (min-width: 640px) {
+        .inner-card-container.horizontal {
+        grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .inner-card-container.horizontal {
+        grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    .inner-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        background-color: var(--color-zinc-200);
+        color: var(--color-zinc-700);
+        text-decoration: none;
+        border-radius: 0;
+        font-weight: 600;
+        border: none;
+        transition: all 0.2s ease;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    a.inner-card:hover {
+        background-color: var(--color-indigo-50);
+        color: var(--color-indigo-700);
+        border-color: var(--color-indigo-200);
+        transform: translateX(4px);
+    }
+
+    .inner-card-container.horizontal a.inner-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .dark .inner-card {
+        background-color: var(--color-zinc-800);
+        color: var(--color-zinc-300);
+        border-color: var(--color-zinc-700);
+    }
+
+    .dark a.inner-card:hover {
+        background-color: var(--color-indigo-950);
+        color: var(--color-indigo-300);
+        border-color: var(--color-indigo-800);
+    }
+
+    /* Specifics for Links */
+    .inner-card .arrow {
+        transition: transform 0.2s ease;
+        opacity: 0.5;
+    }
+    
+    a.inner-card:hover .arrow {
+        transform: translateX(4px);
+        opacity: 1;
+    }
+
+    .inner-card-container.horizontal a.inner-card:hover .arrow {
+        transform: translateX(4px);
+    }
+    
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        border-radius: 0;
+        font-size: 0.875rem;
+        font-weight: 600;
+        background-color: transparent;
+        color: var(--color-indigo-600);
+        border: 1px solid var(--color-indigo-600);
+        transition: all 0.2s ease;
+        text-decoration: none;
+    }
+    
+    .badge:hover {
+        background-color: var(--color-indigo-50);
+        border-color: var(--color-indigo-700);
+        color: var(--color-indigo-700);
+        transform: translateY(-2px);
+    }
+
+    .dark .badge {
+        background-color: transparent;
+        color: var(--color-indigo-400);
+        border-color: var(--color-indigo-400);
+    }
+
+    .dark .badge:hover {
+        background-color: var(--color-indigo-950);
+        border-color: var(--color-indigo-300);
+        color: var(--color-indigo-300);
+    }
+    </style>
+
+    <div class="bento-grid">
+
+    <!-- Main Intro -->
+    <div class="bento-card card-full">
+        <h3>Codebusters</h3>
+        <div class="text-content" style="font-size: 1.1rem;">
+        <p>Welcome to Codebusters! In this event, teams will cryptanalyze and decode encrypted messages using cryptanalysis techniques for historical and modern advanced ciphers.</p>
+        </div>
+    </div>
+
+    <!-- Event Syllabus Accordion -->
+    <div class="bento-card card-full">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+        <h3 style="margin-bottom: 0;">Event Syllabus</h3>
+        <div style="display: flex; gap: 0.75rem;">
+            <button id="expand-all-btn" class="badge" style="cursor: pointer; appearance: none; outline: none; font-family: inherit;">Expand All</button>
+            <button id="collapse-all-btn" class="badge" style="cursor: pointer; appearance: none; outline: none; font-family: inherit;">Collapse All</button>
+        </div>
+        </div>
+        
+    <div class="accordion-container">
+        <div class="syllabus-header-row">
+            <div class="syllabus-grid">
+                <span>ID</span>
+                <span>Week</span>
+                <span>Agenda</span>
+            </div>
+            <div style="width: 1.25rem; flex-shrink: 0;"></div>
+        </div>
+
+        <div class="accordion-item">
+        <button class="accordion-header">
+            <div class="syllabus-grid">
+                <span class="tabular-nums">01</span>
+                <span class="tabular-nums">Week #01 (09/15 to 09/19)</span>
+                <span>Rules, Atbash & Caesar Ciphers</span>
+            </div>
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="accordion-content">
+            <div style="padding-bottom: 1.25rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Today’s Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>Review <a href="https://drive.google.com/file/d/10b8rMUgXUc9IOMTpha_3xvtvFTzzFFq7/view?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">rules</a> and preview <a href="https://drive.google.com/file/d/1p_lc5az4-kGcj9382v1ko_nhWrDw-M5M/view?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">reference sheet</a></li>
+                    <li>Watch Atbash and Caesar cipher videos</li>
+                    <li>Research “<a href="https://youtu.be/atU0V98NCKc" target="_blank" class="link-text" rel="noopener noreferrer">Atbash</a>” or “<a href="https://youtu.be/MNuObJNcMjo" target="_blank" class="link-text" rel="noopener noreferrer">Caesar</a>” cipher example videos if you need additional help understanding</li>
+                    <li><a href="https://docs.google.com/document/d/1Gjg0X9uJEQrEVg-U-WWna9YsspkKUGdxPUt0KppD8HA/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">Atbash practice</a></li>
+                    <li><a href="https://docs.google.com/document/d/1uXpGPMIj-Y3RDNQzH7XP_wxx7kzjZP2agFgUjFqg7ps/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">Caesar practice</a></li>
+                </ul>
+                <p style="margin-bottom: 0.5rem;"><strong>Homework Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li><a href="https://drive.google.com/file/d/1rD4X9dzQj_-PhXRxBN2nFnKFJtIJ-Q8U/view?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">Crypto Challenge Section 1, 2, 3</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class="accordion-item">
+        <button class="accordion-header">
+            <div class="syllabus-grid">
+                <span class="tabular-nums">02</span>
+                <span class="tabular-nums">Week #02 (09/22 to 09/26)</span>
+                <span>Substitution & Aristocrat Ciphers</span>
+            </div>
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="accordion-content">
+            <div style="padding-bottom: 1.25rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Today’s Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>Review <a href="https://docs.google.com/document/d/1OgLvYcVyWM1HiQHZ_uziAj3P6yy6O9DyjcZnR9_fKR4/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">Substitution Cipher Techniques</a></li>
+                    <li>Watch <a href="https://youtu.be/0Mbn1ZhlVSs" target="_blank" class="link-text" rel="noopener noreferrer">Aristocrat cipher video</a></li>
+                    <li>Research “Aristocrat cipher example” videos if you need additional help understanding</li>
+                    <li><a href="https://docs.google.com/document/d/1_sRlZFwA39f_jS3mkvT94hVe-7AbUjHxHPyy5cOmxXY/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">Aristocrat practice</a></li>
+                </ul>
+                <p style="margin-bottom: 0.5rem;"><strong>Homework Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li><a href="https://docs.google.com/document/d/1WB7yl5hQH4qfs37QdZKUuObBX2mNzhUtqu6m9LkVdJg/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">Practice #1</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class="accordion-item">
+        <button class="accordion-header">
+            <div class="syllabus-grid">
+                <span class="tabular-nums">03</span>
+                <span class="tabular-nums">Week #03 (09/30 to 10/03)</span>
+                <span>Solving Methods & Efficiency</span>
+            </div>
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="accordion-content">
+            <div style="padding-bottom: 1.25rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Today’s Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>HW Review and discussion</li>
+                    <li>Think about solving methods and efficiency strategies</li>
+                </ul>
+                <p style="margin-bottom: 0.5rem;"><strong>Homework Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li><a href="https://docs.google.com/document/d/12yShCrSkjo8sfkdzqEqFIyCdtcrARfAhKkJ30grboSM/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">Practice #2</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class="accordion-item">
+        <button class="accordion-header">
+            <div class="syllabus-grid">
+                <span class="tabular-nums">04</span>
+                <span class="tabular-nums">Week #04 (10/06 to 10/10)</span>
+                <span>Intro to K1 Cipher</span>
+            </div>
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="accordion-content">
+            <div style="padding-bottom: 1.25rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Today’s Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>HW Review and discussion</li>
+                    <li>Think about solving methods and efficiency strategies</li>
+                    <li>Intro to K1 and some <a href="https://docs.google.com/document/d/1fa1AUGXF8nqiHyhvnOkpsGUaNSABjHh9R_SGQZiRbyc/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">review/practice</a> (Search up K1 cipher videos online or web pages)</li>
+                </ul>
+                <p style="margin-bottom: 0.5rem;"><strong>Homework Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li><a href="https://docs.google.com/document/d/1PGG5gqe5Tks7CRdF5YOlcSlRVM3S1f483MyQFd6NJj4/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">Practice #3</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class="accordion-item">
+        <button class="accordion-header">
+            <div class="syllabus-grid">
+                <span class="tabular-nums">05</span>
+                <span class="tabular-nums">Week #05 (10/14 to 10/18)</span>
+                <span>Complete Columnar Transposition Cipher</span>
+            </div>
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="accordion-content">
+            <div style="padding-bottom: 1.25rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Today’s Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>HW Review <a href="https://docs.google.com/document/d/1PGG5gqe5Tks7CRdF5YOlcSlRVM3S1f483MyQFd6NJj4/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">answers</a> and discuss</li>
+                    <li>Watch these videos to learn the “Complete Columnar Transposition Cipher” <a href="https://www.youtube.com/watch?v=I1uDv3mBp2U" target="_blank" class="link-text" rel="noopener noreferrer">Intro</a>  <a href="https://www.youtube.com/watch?v=1B0jcTXeFMA" target="_blank" class="link-text" rel="noopener noreferrer">Example</a></li>
+                    <li><a href="https://docs.google.com/document/d/1TvApDuYwMG32xtpGTaUSmM-hUUhLD2Gwe-vpKjlXNtw/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">Columnar Practice</a></li>
+                </ul>
+                <p style="margin-bottom: 0.5rem;"><strong>Homework Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li><a href="https://docs.google.com/document/d/18E7_l5w3N0CTnTnVksQczSKDf2gNd3pFhFe86R8LnXs/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">Practice #4</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class="accordion-item">
+        <button class="accordion-header">
+            <div class="syllabus-grid">
+                <span class="tabular-nums">06</span>
+                <span class="tabular-nums">Week #06 (10/20 to 10/24)</span>
+                <span>Baconian Cipher</span>
+            </div>
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="accordion-content">
+            <div style="padding-bottom: 1.25rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Today’s Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>HW Review <a href="https://docs.google.com/document/d/18E7_l5w3N0CTnTnVksQczSKDf2gNd3pFhFe86R8LnXs/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">answers</a> and discuss</li>
+                    <li>Watch this video to learn the Baconian Cipher <a href="https://www.youtube.com/watch?v=ga_zcVxh2Fg" target="_blank" class="link-text" rel="noopener noreferrer">Baconian Cipher Video</a></li>
+                    <li><a href="https://docs.google.com/document/d/1vveoUMNAG0ICGZasgYZLiZOMx3kyBq0ax_x9rtiW5ts/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">Baconian Practice</a></li>
+                </ul>
+                <p style="margin-bottom: 0.5rem;"><strong>Homework Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li><a href="https://docs.google.com/document/d/1Bwqdt45_uaeSDYEPZzM63col5e5vCDdhx9ZRAzllphw/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">Practice #5</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class="accordion-item">
+        <button class="accordion-header">
+            <div class="syllabus-grid">
+                <span class="tabular-nums">07</span>
+                <span class="tabular-nums">Week #07 (11/03 to 11/07)</span>
+                <span>Real-Time Practice Test</span>
+            </div>
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="accordion-content">
+            <div style="padding-bottom: 1.25rem;">
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>Today, we will take a real-time practice test! Some ciphers we have not covered yet, it is okay to skip around. See how many the team can solve in 50 minutes! <a href="https://drive.google.com/file/d/1s1k93UQ_7eSO01kRxJTnnQ5WUYLKtwKQ/view?usp=drive_link" target="_blank" class="link-text" rel="noopener noreferrer">Wash U 2024 Practice Test</a> <a href="https://drive.google.com/file/d/1zeKBARH-64gi4otUMxyqSJgiUoTCzBdm/view?usp=drive_link" target="_blank" class="link-text" rel="noopener noreferrer">Answers</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class="accordion-item">
+        <button class="accordion-header">
+            <div class="syllabus-grid">
+                <span class="tabular-nums">08</span>
+                <span class="tabular-nums">Week #08 (11/10 to 11/14)</span>
+                <span>Porta Cipher</span>
+            </div>
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="accordion-content">
+            <div style="padding-bottom: 1.25rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Today’s Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>HW Review <a href="https://docs.google.com/document/d/1Bwqdt45_uaeSDYEPZzM63col5e5vCDdhx9ZRAzllphw/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">answers</a> and discuss</li>
+                    <li>Watch this video to learn the Porta Cipher <a href="https://www.youtube.com/watch?v=XjlblVwO9vo&t=258s" target="_blank" class="link-text" rel="noopener noreferrer">Porta Cipher Video</a></li>
+                    <li><a href="https://docs.google.com/document/d/1hKMxsczbYR-YFACIQ3HoMxnH-IguTxV4guC_KKp3Sck/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">Porta Cipher Practice</a></li>
+                </ul>
+                <p style="margin-bottom: 0.5rem;"><strong>Homework Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li><a href="https://docs.google.com/document/d/1BF0RriXlKCzit5nkoHqrxMYoukcdK-iTUuH5yF1tztc/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">Practice #6</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class="accordion-item">
+        <button class="accordion-header">
+            <div class="syllabus-grid">
+                <span class="tabular-nums">09</span>
+                <span class="tabular-nums">Week #09 (11/17 to 11/21)</span>
+                <span>Nihilist Cipher</span>
+            </div>
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="accordion-content">
+            <div style="padding-bottom: 1.25rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Today’s Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>HW Review <a href="https://docs.google.com/document/d/1BF0RriXlKCzit5nkoHqrxMYoukcdK-iTUuH5yF1tztc/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">answers</a> and discuss</li>
+                    <li>Watch this video to learn the Nihilist Cipher <a href="https://www.youtube.com/watch?v=BXwY_NMzIRw" target="_blank" class="link-text" rel="noopener noreferrer">Nihilist Cipher Video</a></li>
+                    <li><a href="https://docs.google.com/document/d/1P0iW_kzQyQVD5wqatnzgQ_1OWlnz_MifqvpDoA2KgH0/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">Nihilist Cipher Practice</a></li>
+                </ul>
+                <p style="margin-bottom: 0.5rem;"><strong>Homework Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li><a href="https://docs.google.com/document/d/1gbCke1CqC8vBsX45BIvBs7-y1c06Vu8stpmCpapOofU/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">Practice #7</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class="accordion-item">
+        <button class="accordion-header">
+            <div class="syllabus-grid">
+                <span class="tabular-nums">10</span>
+                <span class="tabular-nums">Week #10 (12/01 to 12/05)</span>
+                <span>Affine Cipher</span>
+            </div>
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="accordion-content">
+            <div style="padding-bottom: 1.25rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Today’s Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>HW Review <a href="https://docs.google.com/document/d/1gbCke1CqC8vBsX45BIvBs7-y1c06Vu8stpmCpapOofU/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">answers</a> and discuss</li>
+                    <li>Watch this video to learn the Affine Cipher <a href="https://www.youtube.com/watch?v=b86ymP-SGPk" target="_blank" class="link-text" rel="noopener noreferrer">Affine Cipher Video</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=iyESl17IqFQ" target="_blank" class="link-text" rel="noopener noreferrer">Affine Encryption & Decryption Video</a></li>
+                    <li><a href="https://docs.google.com/document/d/1sPbI12I38iwBHBKiv3pXKL-fi1RwDrn8Z1wAP4Zn3ts/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">Affine Cipher Practice</a></li>
+                </ul>
+                <p style="margin-bottom: 0.5rem;"><strong>Homework Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li><a href="https://docs.google.com/document/d/1lwgvCmojVEp8z1X9F3albiqHCR--VWkK1j9FE2i5jiA/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">Practice #8</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class="accordion-item">
+        <button class="accordion-header">
+            <div class="syllabus-grid">
+                <span class="tabular-nums">11</span>
+                <span class="tabular-nums">Week #11 (12/08 to 12/12)</span>
+                <span>Cryptarithm Cipher</span>
+            </div>
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="accordion-content">
+            <div style="padding-bottom: 1.25rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Today’s Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>HW Review <a href="https://docs.google.com/document/d/1lwgvCmojVEp8z1X9F3albiqHCR--VWkK1j9FE2i5jiA/edit?usp=sharing" target="_blank" class="link-text" rel="noopener noreferrer">answers</a> and discuss</li>
+                    <li>Watch these videos to learn the Cryptarithm Cipher. <a href="https://www.youtube.com/watch?v=qwikGHbIbwM" target="_blank" class="link-text" rel="noopener noreferrer">Intro Cryptarithm</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=68_qLqoCqWo" target="_blank" class="link-text" rel="noopener noreferrer">Addition Example #1</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=ZZV_xyFJWxQ" target="_blank" class="link-text" rel="noopener noreferrer">Addition Example #2</a></li>
+                    <li>Cryptarithm Practice</li>
+                </ul>
+                <p style="margin-bottom: 0.5rem;"><strong>Homework Tasks</strong></p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-left: 1.25rem; list-style-type: disc;">
+                    <li>None</li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Bento card animations
+        const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            setTimeout(() => {
+                entry.target.style.transitionDelay = '0s';
+                entry.target.style.transition = 'all 0.2s ease';
+            }, 600);
+            observer.unobserve(entry.target);
+            }
+        });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.bento-card').forEach((card, index) => {
+        card.style.transitionDelay = `${(index % 4) * 0.1}s`;
+        observer.observe(card);
+        });
+
+        // Accordion logic
+        const accordions = document.querySelectorAll('.accordion-header');
+
+        function toggleAccordion(item, content, forceState) {
+        if (forceState === 'expand') {
+            item.classList.add('active');
+            content.style.maxHeight = content.scrollHeight + 40 + "px";
+        } else if (forceState === 'collapse') {
+            item.classList.remove('active');
+            content.style.maxHeight = null;
+        } else {
+            item.classList.toggle('active');
+            if (item.classList.contains('active')) {
+            content.style.maxHeight = content.scrollHeight + 40 + "px";
+            } else {
+            content.style.maxHeight = null;
+            }
+        }
+        }
+
+        accordions.forEach(acc => {
+        acc.addEventListener('click', function() {
+            const item = this.parentElement;
+            const content = this.nextElementSibling;
+            toggleAccordion(item, content);
+        });
+        });
+
+        const expandAllBtn = document.getElementById('expand-all-btn');
+        const collapseAllBtn = document.getElementById('collapse-all-btn');
+
+        if (expandAllBtn && collapseAllBtn) {
+        expandAllBtn.addEventListener('click', () => {
+            accordions.forEach(acc => {
+            const item = acc.parentElement;
+            const content = acc.nextElementSibling;
+            toggleAccordion(item, content, 'expand');
+            });
+        });
+
+        collapseAllBtn.addEventListener('click', () => {
+            accordions.forEach(acc => {
+            const item = acc.parentElement;
+            const content = acc.nextElementSibling;
+            toggleAccordion(item, content, 'collapse');
+            });
+        });
+        }
+    });
+    </script>
+  </div>
+</article>
+{{end}}
