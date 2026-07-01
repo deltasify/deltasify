@@ -10,8 +10,10 @@ type: initiatives/scioly-coaching
 layout: faq-page
 
 faq_details:
+  # Main Intro section. Displays as a large title block. The body text of this Markdown file will be rendered directly below the title.
   main_intro:
     title: "In-Person Coaching"
+  # Accordion section. Add items with 'question' and 'answer'. You can use standard Markdown syntax (like links, bolding, and lists) inside the answers!
   accordion:
     title: "In-Person Volunteer Clearance Process"
     items:
