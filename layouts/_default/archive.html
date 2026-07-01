@@ -347,15 +347,18 @@
     <div class="bento-grid">
 
     <!-- Events Links -->
+    {{ with .Params.archive_details.sections }}
+    {{ range . }}
     <div class="bento-card card-full">
-        <h3 style="margin-bottom: 1.5rem;">UCR Highlander Invitational</h3>
+        <h3 style="margin-bottom: 1.5rem;">{{ .title }}</h3>
         <div class="inner-card-container">
-        <a href="/archive/invitational-26/" class="inner-card">2026 UCR Highlander Invitational <span class="arrow">→</span></a>
-        <a href="/archive/invitational-25/" class="inner-card">2025 UCR Highlander Invitational <span class="arrow">→</span></a>
-        <a href="/archive/invitational-24/" class="inner-card">2024 UCR Highlander Invitational <span class="arrow">→</span></a>
-        <a href="/archive/invitational-23/" class="inner-card">2023 UCR Highlander Invitational <span class="arrow">→</span></a>
+        {{ range .links }}
+        <a href="{{ .url }}" class="inner-card">{{ .text }} <span class="arrow">→</span></a>
+        {{ end }}
         </div>
     </div>
+    {{ end }}
+    {{ end }}
 
     </div>
 
