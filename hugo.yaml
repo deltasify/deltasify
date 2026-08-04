@@ -67,7 +67,7 @@ params:
     image: "images/featured/scioly-coaching-homepage.png"
     content:
       - text: "The Science Olympiad Coaching Program (SOCP) connects dedicated volunteers with middle schoolers to prepare them for Science Olympiad, a track-meet style academic competition. As a coach, you will dedicate approximately one hour per week to develop lecture materials, research tasks, and practice tests, alongside a one-hour weekly coaching session."
-      - text: "Having prior Science Olympiad experience is preferred, but not a strict requirement. You have the flexibility to coach an event independently or team up with a partner. By aiming for at least two coaches per event, we strive to distribute the workload and accommodate scheduling needs effectively."
+      - text: "Having prior Science Olympiad experience is preferred, but not a strict requirement. You have the flexibility to coach an event independently or team up with a partner."
   p3:
     heading: "MathCounts Mentoring Program (MMP)"
     image: "images/featured/math-mentoring-homepage.png"
