@@ -97,7 +97,7 @@ initiative_details:
     - title: "Sign Up & Contact"
       content: |
         Ready to make an impact?  
-        **[📝 Sign Up / Interest Form](#)**
+        **[📝 Sign Up / Interest Form](https://docs.google.com/forms/d/e/1FAIpQLSdN40p9qpQY63_vR17Gyy_BsKScRMg9CDlJ2DFrCZtuTRnocA/viewform)**
         
         If you have any questions or concerns, please email ALL of us on the coaching team at the same time:
         
@@ -167,4 +167,4 @@ initiative_details:
 #           Michael Tin ([mtin@riversideunified.org](mailto:mtin@riversideunified.org)).
 # 
 ---
-The Science Olympiad Coaching Program (SOCP) connects dedicated volunteers with middle schoolers to prepare them for Science Olympiad, a track-meet style academic competition. As a coach, you will dedicate approximately one hour per week to develop lecture materials, research tasks, and practice tests, alongside a one-hour weekly coaching session. Having prior Science Olympiad experience is preferred, but not a strict requirement. **You have the flexibility to coach an event independently or team up with a partner.**
+The Science Olympiad Coaching Program (SOCP) connects volunteers with middle schoolers to prepare them for Science Olympiad, a track-meet style academic competition. As a coach, you will dedicate approximately one hour per week to develop lecture materials and practice tests, alongside a one-hour weekly coaching session. Having prior Science Olympiad experience is preferred, but not a strict requirement. **You have the flexibility to coach an event independently or team up with a partner.**
