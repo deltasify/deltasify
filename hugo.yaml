@@ -109,6 +109,7 @@ menu:
       url: /initiatives/invitational/
       weight: 10
     - identifier: scioly-coaching
+      pre: complexdropdown
       name: Science Olympiad Coaching Program (SOCP)
       url: /initiatives/scioly-coaching/
       weight: 20
@@ -122,6 +123,31 @@ menu:
       weight: 40
   footer:
     -
+  scioly-coaching:
+    - identifier: socp-home
+      pre: home
+      name: Science Olympiad Coaching Program
+      post: "Program overview and details"
+      url: "/initiatives/scioly-coaching/"
+      weight: 10
+    - identifier: intro-coaching
+      pre: info
+      name: Intro to Coaching
+      post: "What you need to know"
+      url: "/initiatives/scioly-coaching/intro-coaching/"
+      weight: 15
+    - identifier: in-person-coaching
+      pre: users
+      name: In-Person Coaching
+      post: "Details for coaching in-person"
+      url: "/initiatives/scioly-coaching/in-person/"
+      weight: 20
+    - identifier: resources-for-coaches
+      pre: folder
+      name: Resources for Coaches
+      post: "Helpful materials and links"
+      url: "/initiatives/scioly-coaching/resources/"
+      weight: 30
     
 
 taxonomies:

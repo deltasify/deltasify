@@ -30,12 +30,6 @@ initiative_details:
     - title: "Tentative Schedule"
       url: "#"
       is_external: true
-    - title: "Resources for Coaches"
-      url: "/initiatives/scioly-coaching/resources/"
-      is_external: false
-    - title: "In-Person Coaching"
-      url: "/initiatives/scioly-coaching/in-person/"
-      is_external: false
   # Main Intro section. Displays as a large title block.
   # The body text of this Markdown file will be rendered directly below the title. Delete or comment out to hide.
   main_intro:
@@ -86,54 +80,59 @@ initiative_details:
   accordion:
     title: "Frequently Asked Questions"
     items:
+      - question: "What are the responsibilities of a volunteer coach?"
+        answer: "Volunteers coach 2-4 middle schoolers for Science Olympiad. Previous experience with teaching and science olympiad is not required."
+      - question: "What is the expected weekly time commitment?"
+        answer: |
+          You will require atleast 1 hour of lesson planning per week and one addition hour coaching per week on Mon, Tue, Thu, Fri: 2:30–3:30 PM or Wed: 12:40–1:40 PM at Riverside STEM Academy (RSA). 
+          
+          Coaching starts on 9/15/26 (A few weeks before UCR fall quarter start) and ends at 3/12/26 (week 10 Winter quarter). Feel free to reach out if you can't exactly start on 9/15/26 due to summer commitment OR if you are interest in continue to coach after 3/12/26.
+      - question: "What are the coaching formats available and is this paid?"
+        answer: |
+          You can coach in person, online, or hydrid (mix of both). 
+          
+          You can co-coach with one other person.
+          
+          This is an unpaid volunteer opportunity.
       - question: "What is Science Olympiad?"
-        answer: "Science Olympiad is a track-meet style academic competition that is open ended. You will be given \"Learning goals\", practice tests, and some lecture material but not a complete textbook design for the event."
-      - question: "How can I learn more about Science Olympiad events?"
-        answer: "TBD"
-      - question: "What is the Rule Book for 2026-2027?"
-        answer: "TBD"
-      - question: "How will coaching online or in person work?"
         answer: |
-          **Online:** Coaches will be given a Google Meet link that will be used each week to meet with students. A teacher at RSA will need to admit you to the meeting and then you will begin your coaching session.
+          Science Olympiad is a track-meet style academic competition that is open ended. You will be given "Learning goals" and has to design a curriculum to help middle schoolers achieve those goals. ** There are practice tests and online resources to help.**
           
-          **In Person:** Volunteer clearance will be needed. Mr. Zonker or Michael Tin will work with you to enter Riverside Stem Academy and find the meeting locations
-          
-          **Hybrid:** Do mix of both
-      - question: "Why should coaches consider coaching in person?"
-        answer: "Volunteers could coach online if that is convenient. But, we strongly recommend coaching in person because it will help you develop a deeper relationship with the students and give you a more fun experience. Many coaches have done a hybrid in the past if that works best."
-      - question: "Are there any transportation support for those interested in coaching in person?"
+          The official website is : [https://www.soinc.org/events/2027-division-b-events](https://www.soinc.org/events/2027-division-b-events)
+      - question: "How can I learn more about Science Olympiad events and decide which events to coach ?"
         answer: |
-          Unfortunately no. But we recommend you discuss with volunteers who coach on the same day to see if they can help give you a drive. OR you can treat your 30 minute walks to RSA as exercise.
+          Science Olympiad Events slide ( [link](https://docs.google.com/presentation/d/1TPmZ5X1s-hz0w3JNKMHfkllwHAw_oxiu8lq7VWJEVBw/edit) ) includes sample questions/ build from (most) of the events. Use this to help you decide what events to coach.
           
-          *\*If you have a car and are willing to help give rides for other coaches. Please let us know\**
-      - question: "How do I meet the clearance requirements to coach in person?"
-        answer: "TBD"
-      - question: "(In-Person) Where should I go after arriving at Riverside STEM Academy?"
-        answer: "The address will lead you to a parking lot. You need to walk up stairs / uphill until you see people near the gates of school that will be able to check you in. You will need a driver license to sign in for \"science olympiad with Joshua Zonker\"."
-      - question: "(In-Person) How can coaches access the Wi-Fi network at the school site?"
-        answer: "In-person coaches will need to download and install the following certificate to use the RUSD network. [https://webapps.riversideunified.org/networkcert/](https://webapps.riversideunified.org/networkcert/)"
-      - question: "What is the schedule for this year?"
-        answer: "TBD"
-      - question: "If I am new to Science Olympiad what are some resources I could use?"
-        answer: "TBD"
-      - question: "How do I decide what events to coach?"
-        answer: "TBD"
-      - question: "Could I decide my coaching partners?"
-        answer: "If you know someone who is willing to work together with you. Please leave a comment about that in the form you fill out your respective google forms to sign up for coaching. And try to have common availability day and events preference."
-      - question: "Could I coach alone?"
-        answer: "If you prefer coaching alone, please do your best to make sure you will available for coaching in winter quarter. We aim to keep coaching days during winter same as fall but if needed, we can try to work out different days/times."
-      - question: "Can I coach multiple events?"
-        answer: "Yes. Interested volunteers can coach one or more events. **Make sure you have enough time to coach multiple events !**"
-      - question: "Who do I contact if I need to buy or print anything?"
+          Sample practice tests are also available on : (Student-run Wiki) [https://scioly.org/wiki/Test_Exchange_Archive](https://scioly.org/wiki/Test_Exchange_Archive) 
+          
+          The rules for this year is : [https://drive.google.com/file/d/1HakWn4eD-faApgXcu4sS2MjFaoYLB6hp/view?usp=sharing](https://drive.google.com/file/d/1HakWn4eD-faApgXcu4sS2MjFaoYLB6hp/view?usp=sharing)
+      - question: "Why do Science Olympiad Coaching?"
         answer: |
-          If your event requires the purchase of physical items or any monetary expense, please gmail Michael Tin [mtin@riversideunified.org](mailto:mtin@riversideunified.org) because he is the staff at Riverside STEM Academy.
+          Curious about what teaching is really like? Or passionate about inspiring young minds? This is your chance to make a real impact. 
           
-          If you need any materials or worksheets to be printed for your students, please send Josh the file(s) via email at least a day in advance so he can print them
-      - question: "What if I need to be absent (ex. sick)?"
+          Other reasons : 
+          Joy of helping students master difficult content.
+          
+          Satisfaction from making a creative lesson for subject you are interested in.
+          
+          Mastery of soft skills like how to communicate, be organized, and manage a small group of individuals.
+      - question: "How else can I help if I am unavailable to coach?"
+        answer: "Even if you are not available to coach please let others know! We prefer UCR students because they have potential of coaching in person, but open to non-UCR volunteers as long as they are 18+."
+      - question: "Where can I sign up?"
+        answer: "[Insert Google Form Link Here]"
+      - question: "How can I check event availability or co-coaching status?"
         answer: |
-          If you have to miss a coaching session, please contact [mtin@riversideunified.org](mailto:mtin@riversideunified.org) so we can provide accommodations for your students.
+          (1) We have no deadlines for the interest form. We are always looking for coaches for unfilled events. W
           
-          Please prepare materials you would want the students to go over on that day and send those too if you are able.
+          (1b) We had assigned a date to meet that is convenient for the kids to meet, however we are open to attempting to move the event to different date based on your availability.
+          
+          (2) If you are interested in co-coaching an event that already has a coach. Please check if the event is labeld as "Yes" under column of "co-Coaching availability"
+      - question: "Who do I contact if I have any questions or concerns?"
+        answer: |
+          Please email ALL of us in the scioly coaching team at same time : 
+          Nam Vu ([nvu042@ucr.edu](mailto:nvu042@ucr.edu)) 
+          Michael Tin ([mtin@riversideunified.org](mailto:mtin@riversideunified.org)).
+
 ---
 The Science Olympiad Coaching Program (SOCP) connects dedicated volunteers with middle schoolers to prepare them for Science Olympiad, a track-meet style academic competition. As a coach, you will dedicate approximately one hour per week to develop lecture materials, research tasks, and practice tests, alongside a one-hour weekly coaching session.
 

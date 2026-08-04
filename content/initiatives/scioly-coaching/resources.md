@@ -17,70 +17,29 @@ faq_details:
   accordion:
     title: "Frequently Asked Questions"
     items:
-      - question: "Is there an official coach training?"
-        answer: |
-          We don't have an official training to be a coach. But there are resources on the "coaching resource" tab of our website.
-          
-          Additionally, some events ARE continued (likely with some modifications). So you may be able to utilize material from previous year's coach material.
-          
-          Lastly, if you really struggle to make lessons, feel free to [nvu042@ucr.edu](mailto:nvu042@ucr.edu) me or we can schedule a virtual / in person at ucr meeting to talk about it.
-      - question: "What is the Event Folder?"
-        answer: |
-          Each event will have a folder and team document; this will be shared with you on Google Drive after you are confirmed for an event.
-          
-          The folder is a place for you and team members to store resources, create notes documents and anything else that suits your team’s needs. The team document has the standing Google Meet link (for virtual meetings), a place to put questions and resources needed, and a practice log.
-      - question: "What if I have not gain access to event folder by the time I start coaching?"
-        answer: 'Let Michael [mtin@riversideunified.org](mailto:mtin@riversideunified.org) and Nam [nvu042@ucr.edu](mailto:nvu042@ucr.edu) know immediately'
+      - question: "If I am new to Science Olympiad, what are some resources I could use?"
+        answer: "Go to the \"coaching resource\" page on our website. Use the 2026 rulebook links, Scioly.org Test Archives, and ChatGPT to help generate practice questions."
+      - question: "Will we be trained on being a coach?"
+        answer: "No official training, but you can utilize folders containing previous years' coach materials. If you really struggle to make lessons, email nvu042@ucr.edu to meet up."
+      - question: "How do Event Folders work?"
+        answer: "Shared via Google Drive after confirmation. Contains your team document, standard Google Meet link, question space, and practice log. If missing access the week before you start to coach, email Michael and Nam immediately."
+      - question: "What are some general preparation tips?"
+        answer: "(1) Practice! (2) Bond! (3) Prepare! Give short lectures to build foundational skills, then shift directly to practice tests."
       - question: "Why do practice tests?"
-        answer: |
-          The open-ended nature of the science Olympiad means that trying to give in depth lecture that cover all possible content is very difficult.
-          
-          Doing practice tests will give students practice with the vast variety of possible testing questions and help highlight where they struggle, which allow you to correct any misunderstanding they have.
-      - question: "Where can I find practice test and lecture resources?"
-        answer: |
-          [https://www.soinc.org/events/2026-division-b-events](https://www.soinc.org/events/2026-division-b-events) : Each event has "Practice problem and test section". And "Resources & Links" (lecture material)
-          
-          [https://scioly.org/wiki](https://scioly.org/wiki) : Clicking on events give you "wikipedia" of event (may not be detailed). Clck on "Test Exchange" or "Test Archive" under scioly.org resources for practice tests
-          
-          You may consider using ChatGPT or other AI tools to explain material and helping to come with practice questions.
-          
-          You will given an event folder containing previous coaches' material *\*Not all events has previous material\**
-      - question: "How do I get comfortable with coaching? How do I get kids to become comfortable with me coaching them?"
-        answer: |
-          You should get to know each other through ice breaker games and conversational starter (Example attached).
-          
-          Some kids are more outgoing than others, and students on your team may not even feel the most comfortable with each other at first. If things are a bit awkward at first, give it some time!
-      - question: "What are some first meeting ideas?"
-        answer: |
-          Introductions: Share a little about yourself and ask the kids to share some things about themselves
-          
-          Rules: Read over the rules and discuss any previous experience (or lack of experience) you and the students have in the area. Make clear some basic behavior expectations.
-          
-          Lecture: Get started right away by diving into some basic concepts
+        answer: "The open-ended nature of the competition makes lecturing all content impossible. Practice tests expose students to question varieties and highlight areas where they struggle."
+      - question: "How do I get comfortable with coaching?"
+        answer: "Use icebreaker games and conversation starters. If things are a bit awkward at first, give it some time!"
+      - question: "What should I cover in the first meeting?"
+        answer: "1. Introductions (share about yourself). 2. Rules (read rules, discuss experience, set behavior expectations). 3. Lecture (dive into basic concepts right away)."
+      - question: "What are some good ideas for weekly lessons?"
+        answer: "Quiz to review last week's concepts, student research sharing, standard topic lectures, reviewing homework, team worksheets, or creating study materials (flashcards, mind maps)."
+      - question: "How to plan out coaching schedule?"
+        answer: "Refer to our rough tracking schedule: https://docs.google.com/spreadsheets/d/15QrdHFAxc7hdn9uK_lPT64KyrPxAmmadGniWQbQDi8w/edit?usp=sharing to pace your lessons around major competition dates."
       - question: "Should coaches plan out time to make a study guide near competition time?"
-        answer: 'It is recommend for coaches to guide students (instead of directly doing it for them) toward making a study guide to help students review the material. Additionally, some events allow for cheat sheets (double check the event parameter in the rule book).'
-      - question: "How do I plan out a coaching schedule?"
-        answer: |
-          **Update later**
-          
-          [https://docs.google.com/document/d/1u0e51L5E215jtPuNNbn_vgKAHUnftfyRt_EHnyj_TNY/edit?tab=t.0](https://docs.google.com/document/d/1u0e51L5E215jtPuNNbn_vgKAHUnftfyRt_EHnyj_TNY/edit?tab=t.0)
-      - question: "What are some general ideas for lessons?"
-        answer: |
-          -Quiz to review last week’s concepts: print out practice tests, kids quiz each other on notes they have taken, asking questions as conduct lab, etc..
-          
-          -Have students do and then share research
-          
-          -Lecture on a topic
-          
-          -Go over homework for the week.
-          
-          -Doing worksheet as team, pair of two or individually.
-          
-          -Create study materials: information summaries, flashcards, mind maps.
-      - question: "What are some extra coaching ideas?"
-        answer: |
-          [https://docs.google.com/document/d/1H3Mh1Dg7yvEvJKl-k2qzCdUnQhxvuWPu8pBrwl_IoHs/edit?tab=t.0](https://docs.google.com/document/d/1H3Mh1Dg7yvEvJKl-k2qzCdUnQhxvuWPu8pBrwl_IoHs/edit?tab=t.0)
-          
-          Extra coaching ideas if you are interested. I will continue to add more ideas when I find them.
+        answer: "Guide students toward making their own study guides/cheat sheets instead of directly doing it for them, depending on event parameters."
+      - question: "Where can I find extra coaching ideas?"
+        answer: "Look at the extra coaching ideas section on the site; more ideas will be continuously added."
+      - question: "What should I do if I need to be absent?"
+        answer: "Contact mtin@riversideunified.org. Prepare and email the self-guided materials you want the students to go over on that day."
 ---
 Practice! Bond! Prepare! It is recommend that coaches give short lectures that build students' foundational skills / knowledge, then allow them to do practice tests.

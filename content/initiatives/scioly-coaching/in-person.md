@@ -17,50 +17,36 @@ faq_details:
   accordion:
     title: "In-Person Volunteer Clearance Process"
     items:
-      - question: "1. Official website"
-        answer: 'Visit [https://www.riversideunified.org/parents/volunteer_opportunities](https://www.riversideunified.org/parents/volunteer_opportunities) and click on "Adult Volunteer Participation Form".'
-      - question: "2. Filling out the form"
-        answer: 'Indicate "Riverside STEM Academy" under "School site at which you wish to volunteer" and "Student Volunteer for Science Olympiad" for the reason you are requesting to volunteer.'
-      - question: "3. Required volunteer training"
-        answer: 'Complete the Required Volunteer Training. This will take 5-10 minutes.'
-      - question: "4a. TB Risk Assessment"
+      - question: "What is in person clearance for?"
+        answer: "You are required to pass this clearance to do coaching in person. Please read through this guide before beginning clearance so you don’t confuse yourself. Start as soon as possible."
+      - question: "How do I meet the clearance requirements to coach in person?"
+        answer: "Refer to the detailed steps on our \"In person coaching\" page sequence."
+      - question: "(1) Official website step"
+        answer: "Go to https://www.riversideunified.org/parents/volunteer_opportunities and click \"Adult Volunteer Participation Form\"."
+      - question: "(2) Filling out the form"
+        answer: "If you are from UCR, include this for \"other\" and \"reason you are requesting to volunteer\": \"UCR Student Volunteering for Science Olympiad\"."
+      - question: "(3) Required volunteer training"
         answer: |
-          Call the phone number provided on the form (as of 7/22/25 it should be (951)274-4213).
+          Takes 5-10 minutes. 
           
-          State you are calling for TB risk assessment. And you are volunteering to coach science Olympiad at Riverside Stem Academy (RSA).
-          
-          You will likely not need to do TB test unless you traveled out of country over summer.
-          
-          If need TB test, consider telling them about any recent TB test (ex. the one you take to get into UCR).
-      - question: "4b. If you do require a TB test AFTER talking the TB Risk Assessment"
+          But essential rules: NO private communication with minors (talk to instead), NO adding students on social media, keep conversations on-topic and appropriate.
+      - question: "(4) TB test / risk assessment requirements"
+        answer: "Call (951)274-4213. State you are a volunteer coaching at RSA. You likely won't need a physical test unless you traveled out of the country. You can reference your UCR entry TB test."
+      - question: "(4b) If needed a TB test AFTER talking to phone number"
+        answer: "Head to UCR Student Health Center (USHIP), any clinic accepting your insurance, or the CVS near UCR at 491 East Alessandro Boulevard."
+      - question: "(5) Fingerprint procedure"
         answer: |
-          USHIP- Student Health Center
+          Email [nvu042@ucr.edu](mailto:nvu042@ucr.edu) to meet up and receive a voucher. Any where near UCR is fine.
           
-          Or any other clinic that accepts your insurance
-          
-          CVS near UCR @ 491 East Alessandro Boulevard, Riverside, CA 92508
-      - question: "5. Fingerprint procedure"
-        answer: |
-          Gmail [nvu042@ucr.edu](mailto:nvu042@ucr.edu) to request a voucher and schedule to meet up in person and get your voucher. You can redeem the voucher at 5198 Arlington Ave Riverside, CA 92504 to clear your fingerprinting requirement.
-          
-          You should bring the live scan form sent to you by rusd volunteeer gmail (it is sent to you once you start the volunteer application processs) to this appointment.
-          
-          *\*I will be at UCR starting at week zero 9/15/25*\*
-          
-          *\*You can request locations convenient for you that is at UCR.\**
-      - question: "6. After receiving clearance email"
-        answer: 'Please check with Michael ([mtin@riversideunified.org](mailto:mtin@riversideunified.org)) that you have officially been cleared.'
-      - question: "7. Optional feedback"
-        answer: |
-          Give us feedback on your experience by emailing [nvu042@ucr.edu](mailto:nvu042@ucr.edu)
-          
-          Did you find the guide helpful? What make it helpful?
-          
-          Did you find any problems with the clearance process?
-          
-          Is anything on the guide not clear?
-          
-          Any other comments?
+          Redeem the Voucher at UPS at 5198 Arlington Ave Riverside, CA 92504. When you redeem, remember to bring the live scan form sent by RUSD volunteer email.
+      - question: "(6) Clearance confirmation"
+        answer: "Once you receive an email stating you are clear, double-check with Michael Tin (mtin@riversideunified.org) that you are officially cleared on his list."
+      - question: "For in person coaching, where should I go after arriving at RSA?"
+        answer: "Walk uphill from the parking lot to the school gates. Bring a driver's license to sign in for \"science olympiad with Joshua Zonker\"."
+      - question: "Can coaches use wifi at the school site?"
+        answer: "Yes, but you must download and install the network certificate from https://webapps.riversideunified.org/networkcert/"
+      - question: "(7) Optional feedback"
+        answer: "Email feedback on your clearance experience to nvu042@ucr.edu (was it helpful, any problems, etc.)."
 ---
 You are required to pass this clearance to do coaching in person. Please read through this guide before beginning clearance so you don’t confuse yourself.
 
