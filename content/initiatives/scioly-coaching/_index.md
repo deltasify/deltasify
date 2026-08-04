@@ -37,7 +37,7 @@ initiative_details:
   # Stats section. Add items with 'value' and 'label'.
   # Delete or comment out to hide.
   stats:
-    - value: "Sept 15, 2026"
+    - value: "Sept 14, 2026"
       label: "Start Date"
     - value: "Mar 12, 2027"
       label: "End Date"
@@ -67,7 +67,10 @@ initiative_details:
         Even if you are not available to coach please let others know! We prefer UCR students because they have potential of coaching in person, but open to non-UCR volunteers as long as they are 18+.
     - title: "Schedule & Location"
       content: |
-        **🗓️ Dates:** Sept 15, 2026 – Mar 12, 2027
+        **🗓️ Dates:** Sept 14, 2026 – Mar 12, 2027
+        
+        **📊 Tentative Schedule:** [View Tentative Schedule](https://docs.google.com/spreadsheets/d/1cca2YgB8JI5jXxHp6h3X5nuyLPnjRN4EHjOdJ6aPvIs/edit?usp=sharing)  
+        *Note the date of major competitions so that you can pace your lessons to cover all the material. Sometimes there are special events at school and coaching may be adjusted. This will be communicated to you.*
         
         **⏰ Weekly Slots:** **Mon, Tue, Thu, Fri** (2:30-3:30 PM) or **Wed** (12:40-1:40 PM).
         
@@ -75,7 +78,7 @@ initiative_details:
         
         **📍 Location:** Riverside STEM Academy (4466 Mt Vernon Ave, Riverside, CA). You have the option to coach online, in-person, or hybrid.
         
-        *Need flexibility?* We understand outside obligations may affect your schedule. Let us know if you need to start later or end earlier!
+        *Need flexibility?* We understand outside obligations (ex. summer vacation) may affect your schedule. Please let us know if you require a delayed start or an early end to your coaching term.
     - title: "Competitions"
       content: |
         You will be preparing students for the following tournaments:
@@ -90,7 +93,7 @@ initiative_details:
         - [Science Olympiad Student Wiki](https://scioly.org)
         - [Official Science Olympiad Rules](https://drive.google.com/file/d/1HakWn4eD-faApgXcu4sS2MjFaoYLB6hp/view?usp=sharing)
         
-        There are no deadlines for our interest form—we are always looking for coaches! Check the co-coaching availability spreadsheet to see open events.
+        There are no deadlines for our interest form—we are always looking for coaches! You can check the Coaching Availability Spreadsheet (to be added later) to see open events.
     - title: "Sign Up & Contact"
       content: |
         Ready to make an impact?  
@@ -164,6 +167,4 @@ initiative_details:
 #           Michael Tin ([mtin@riversideunified.org](mailto:mtin@riversideunified.org)).
 # 
 ---
-The Science Olympiad Coaching Program (SOCP) connects dedicated volunteers with middle schoolers to prepare them for Science Olympiad, a track-meet style academic competition. As a coach, you will dedicate approximately one hour per week to develop lecture materials, research tasks, and practice tests, alongside a one-hour weekly coaching session.
-
-**Having prior Science Olympiad experience is preferred, but not a strict requirement.** You have the flexibility to coach an event independently or team up with a partner. By aiming for at least two coaches per event, we strive to distribute the workload and accommodate scheduling needs effectively.
+The Science Olympiad Coaching Program (SOCP) connects dedicated volunteers with middle schoolers to prepare them for Science Olympiad, a track-meet style academic competition. As a coach, you will dedicate approximately one hour per week to develop lecture materials, research tasks, and practice tests, alongside a one-hour weekly coaching session. Having prior Science Olympiad experience is preferred, but not a strict requirement. **You have the flexibility to coach an event independently or team up with a partner.**

@@ -34,7 +34,7 @@ faq_details:
       - question: "What are some good ideas for weekly lessons?"
         answer: "Quiz to review last week's concepts, student research sharing, standard topic lectures, reviewing homework, team worksheets, or creating study materials (flashcards, mind maps)."
       - question: "How to plan out coaching schedule?"
-        answer: "Refer to our rough tracking schedule: https://docs.google.com/spreadsheets/d/15QrdHFAxc7hdn9uK_lPT64KyrPxAmmadGniWQbQDi8w/edit?usp=sharing to pace your lessons around major competition dates."
+        answer: "Refer to our rough tracking schedule: https://docs.google.com/spreadsheets/d/1cca2YgB8JI5jXxHp6h3X5nuyLPnjRN4EHjOdJ6aPvIs/edit?usp=sharing to pace your lessons around major competition dates."
       - question: "Should coaches plan out time to make a study guide near competition time?"
         answer: "Guide students toward making their own study guides/cheat sheets instead of directly doing it for them, depending on event parameters."
       - question: "Where can I find extra coaching ideas?"
