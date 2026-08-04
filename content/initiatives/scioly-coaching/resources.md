@@ -42,4 +42,4 @@ faq_details:
       - question: "What should I do if I need to be absent?"
         answer: "Contact mtin@riversideunified.org. Prepare and email the self-guided materials you want the students to go over on that day."
 ---
-Practice! Bond! Prepare! It is recommend that coaches give short lectures that build students' foundational skills / knowledge, then allow them to do practice tests.
+Practice! Bond! Prepare! It is recommend that coaches give short lectures that build students' foundational skills / knowledge, then allow them to do practice tests. **NOTE: This section is not finalized yet and will be updated later.**

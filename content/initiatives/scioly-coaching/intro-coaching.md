@@ -37,5 +37,12 @@ faq_details:
         answer: "We strongly recommend coaching in person because it helps you develop a deeper relationship with the students and gives you a more fun experience."
       - question: "Are there any transportation support for those interested in coaching in person?"
         answer: "Unfortunately no. We recommend coordinating rides with coaches on the same day, treating your 30-minute walk to RSA as exercise, or letting us know if you can give rides ** this will be asked on the interest form***"
+      - question: "Who do I contact if I need to buy or print anything?"
+        answer: "If your event requires the purchase of physical items or any monetary expense, please email Joshua Zonker ([jzonker@riversideunified.org](mailto:jzonker@riversideunified.org)) as he is the staff member at Riverside STEM Academy. If you need any materials or worksheets to be printed for your students, please send Joshua Zonker the file(s) via email at least a day in advance so he can print them."
+      - question: "What if I need to be absent (ex. sick)?"
+        answer: "If you have to miss a coaching session, please contact Joshua Zonker ([jzonker@riversideunified.org](mailto:jzonker@riversideunified.org)) so we can provide accommodations for your students. Please prepare materials you would want the students to go over on that day and send those too if you are able."
+      - question: "What is the process for online coaching, and who do I contact for support?"
+        answer: |
+          Your Google Meet link will be available on the Coaching Dashboard. You will join the Google Meet on your specified date and time and wait to be admitted while we get the students to join. There may occasionally be a small delay while we get the students ready, so please bear that in mind while you are waiting to get into the Google Meet. Joshua Zonker ([jzonker@riversideunified.org](mailto:jzonker@riversideunified.org)) will be at RSA during the coaching sessions. If any issues arise (e.g., the Google Meet link isn't working), you can contact him via email.
 ---
 Welcome to the Science Olympiad Coaching Program! Review the FAQs below to learn more about our coaching schedule, how to collaborate through co-coaching, and the expectations for in-person coaching.

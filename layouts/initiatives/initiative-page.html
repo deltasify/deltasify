@@ -390,14 +390,16 @@
 
     <!-- Half Cards -->
     {{ with .content_blocks }}
-    {{ range . }}
-    <div class="bento-card card-half">
-        <h3>{{ .title }}</h3>
-        <div class="text-content">
-        {{ .content | markdownify }}
-        </div>
+    <div class="card-full" style="display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; grid-auto-rows: 1fr;">
+      {{ range . }}
+      <div class="bento-card card-half" style="height: 100%;">
+          <h3>{{ .title }}</h3>
+          <div class="text-content">
+          {{ .content | markdownify }}
+          </div>
+      </div>
+      {{ end }}
     </div>
-    {{ end }}
     {{ end }}
 
     <!-- FAQ Accordion -->

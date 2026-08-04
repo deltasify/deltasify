@@ -50,4 +50,4 @@ faq_details:
 ---
 You are required to pass this clearance to do coaching in person. Please read through this guide before beginning clearance so you don’t confuse yourself.
 
-If you can and willing to coach in person please get start on this as soon as possible. If you need help, please email Michael ([mtin@riversideunified.org](mailto:mtin@riversideunified.org)).
+If you can and willing to coach in person please get start on this as soon as possible. If you need help, please email Nam ([nvu042@ucr.edu](mailto:nvu042@ucr.edu)) Michael ([mtin@riversideunified.org](mailto:mtin@riversideunified.org)).
