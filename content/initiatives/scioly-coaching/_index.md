@@ -11,7 +11,7 @@ layout: initiative-page
 initiative_details:
   # Quick Links section. Add items with 'title' and 'url'. Set 'is_external' to true to open in a new tab.
   # Delete or comment out to hide.
-#   quick_links:
+  quick_links:
 #     - title: "Sign Up / Interest Form"
 #       url: "#"
 #       is_external: true
@@ -30,6 +30,18 @@ initiative_details:
 #     - title: "Tentative Schedule"
 #       url: "#"
 #       is_external: true
+    - title: "Science Olympiad Coaching Program"
+      url: "/initiatives/scioly-coaching/"
+      is_external: false
+    - title: "Intro to Coaching"
+      url: "/initiatives/scioly-coaching/intro-coaching/"
+      is_external: false
+    - title: "In-Person Coaching"
+      url: "/initiatives/scioly-coaching/in-person/"
+      is_external: false
+    - title: "Resources for Coaches"
+      url: "/initiatives/scioly-coaching/resources/"
+      is_external: false
   # Main Intro section. Displays as a large title block.
   # The body text of this Markdown file will be rendered directly below the title. Delete or comment out to hide.
   main_intro:

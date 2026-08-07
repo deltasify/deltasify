@@ -100,6 +100,9 @@ params:
     twitter:
       enabled: true
       url: 'https://x.com/deltasify'
+    discord:
+      enabled: true
+      url: 'https://discord.gg/YYtf4F6jVk'
     
 
 menu:
