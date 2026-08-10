@@ -56,6 +56,12 @@ params:
   disable_theme_toggle: false
   disable_stay_uptodate: true
 
+  banner:
+    show: true
+    clickable: true
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSdN40p9qpQY63_vR17Gyy_BsKScRMg9CDlJ2DFrCZtuTRnocA/viewform"
+    message: "✨ Science Olympiad Coaching Program (SOCP) - Applications Open Now!"
+
   p1:
     heading: "UCR Highlander Invitational"
     image: "images/featured/invitational-homepage.png"

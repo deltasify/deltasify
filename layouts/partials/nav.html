@@ -1,4 +1,17 @@
-<div class="top-0 z-50 w-full text-gray-200 bg-gray-200 border-2 border-gray-900 bg-gray-950 md:sticky border-b-stone-200/10">
+<style>
+@keyframes flowingGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.bg-animated-gradient {
+    background: linear-gradient(270deg, #2563eb, #7c3aed, #2563eb);
+    background-size: 200% 200%;
+    animation: flowingGradient 8s ease infinite;
+}
+</style>
+<div class="top-0 z-50 w-full sticky" style="position: -webkit-sticky; position: sticky; top: 0;">
+    <div class="w-full text-gray-200 bg-gray-200 border-2 border-gray-900 bg-gray-950 border-b-stone-200/10">
     <div x-data="{ open: false }" class="flex flex-col px-4 mx-auto max-w-full md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
         <div class="flex flex-row justify-between items-center p-4">
             <a href="/" class="flex text-gray-100 transition duration-1000 ease-in-out group">
@@ -110,4 +123,14 @@
             {{ end }}
         </nav>
     </div>
+</div>
+    {{ if .Site.Params.banner.show }}
+    <div class="w-full bg-animated-gradient text-white text-center py-2 px-4 text-sm font-medium">
+        {{ if .Site.Params.banner.clickable }}
+        <a href="{{ .Site.Params.banner.link | default "#" }}" class="hover:underline block w-full h-full">{{ .Site.Params.banner.message }}</a>
+        {{ else }}
+        {{ .Site.Params.banner.message }}
+        {{ end }}
+    </div>
+    {{ end }}
 </div>
