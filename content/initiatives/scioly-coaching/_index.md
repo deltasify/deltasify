@@ -49,7 +49,7 @@ initiative_details:
   # Stats section. Add items with 'value' and 'label'.
   # Delete or comment out to hide.
   stats:
-    - value: "Sept 14, 2026"
+    - value: "Sept 14 (Flexible)"
       label: "Start Date"
     - value: "Mar 12, 2027"
       label: "End Date"
@@ -79,24 +79,25 @@ initiative_details:
         Even if you are not available to coach please let others know! We prefer UCR students because they have potential of coaching in person, but open to non-UCR volunteers as long as they are 18+.
     - title: "Schedule & Location"
       content: |
-        **🗓️ Dates:** Sept 14, 2026 – Mar 12, 2027
+        *Need flexibility?* We onboard coaches on a **rolling basis**—we understand outside obligations (ex. summer vacation) may affect your schedule, so please let us know if you require a delayed start or an early end.
         
-        **📊 Tentative Schedule:** [View Tentative Schedule](https://docs.google.com/spreadsheets/d/1cca2YgB8JI5jXxHp6h3X5nuyLPnjRN4EHjOdJ6aPvIs/edit?usp=sharing)  
-        *Note the date of major competitions so that you can pace your lessons to cover all the material. Sometimes there are special events at school and coaching may be adjusted. This will be communicated to you.*
+        **🗓️ Dates:** Sept 14, 2026 (flexible start) – Mar 12, 2027
+        
+        **📊 Tentative Schedule:** [View Tentative Schedule](https://docs.google.com/spreadsheets/d/1cca2YgB8JI5jXxHp6h3X5nuyLPnjRN4EHjOdJ6aPvIs/edit?usp=sharing)
         
         **⏰ Weekly Slots:** **Mon, Tue, Thu, Fri** (2:30-3:30 PM) or **Wed** (12:40-1:40 PM).
         
         **⏱️ Time Commitment:** ~2 hrs/wk (1 hr planning + 1 hr coaching)
         
         **📍 Location:** Riverside STEM Academy (4466 Mt Vernon Ave, Riverside, CA). You have the option to coach online, in-person, or hybrid.
-        
-        *Need flexibility?* We understand outside obligations (ex. summer vacation) may affect your schedule. Please let us know if you require a delayed start or an early end to your coaching term.
     - title: "Competitions"
       content: |
         You will be preparing students for the following tournaments:
         - **UCR Highlander Invitational** (Jan 2027)
         - **Inland Empire Regional Tournament** (Mar 2027)
         - **Southern California State Competition** (Apr 2027)
+      
+        *Note the date of major competitions so that you can pace your lessons to cover all the material. Sometimes there are special events at school and coaching may be adjusted. This will be communicated to you.*
     - title: "Resources & Events"
       content: |
         Want to learn more before choosing an event to coach? Use these resources:
@@ -105,7 +106,7 @@ initiative_details:
         - [Science Olympiad Student Wiki](https://scioly.org)
         - [Official Science Olympiad Rules](https://drive.google.com/file/d/1HakWn4eD-faApgXcu4sS2MjFaoYLB6hp/view?usp=sharing)
         
-        There are no deadlines for our interest form—we are always looking for coaches! You can check the Coaching Availability Spreadsheet (to be added later) to see open events.
+        We accept applications on a **rolling basis** with no hard deadlines—we are always looking for coaches! You can check the Coaching Availability Spreadsheet (to be added later) to see open events.
     - title: "Sign Up & Contact"
       content: |
         Ready to make an impact?  
