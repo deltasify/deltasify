@@ -79,7 +79,7 @@ initiative_details:
         Even if you are not available to coach please let others know! We prefer UCR students because they have potential of coaching in person, but open to non-UCR volunteers as long as they are 18+.
     - title: "Schedule & Location"
       content: |
-        *Need flexibility?* We onboard coaches on a **rolling basis**—we understand outside obligations (ex. summer vacation) may affect your schedule, so please let us know if you require a delayed start or an early end.
+        *Need flexibility?* We onboard coaches on a **rolling basis**—we understand outside obligations (ex. summer vacation) may affect your schedule,  so please let us know if you require a delayed start or to be online for first few sessions.
         
         **🗓️ Dates:** Sept 14, 2026 (flexible start) – Mar 12, 2027
         
