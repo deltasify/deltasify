@@ -59,8 +59,19 @@ params:
   banner:
     show: true
     clickable: true
-    link: "https://docs.google.com/forms/d/e/1FAIpQLSdN40p9qpQY63_vR17Gyy_BsKScRMg9CDlJ2DFrCZtuTRnocA/viewform"
-    message: "✨ Science Olympiad Coaching Program (SOCP) - Applications Open Now!"
+    link: "https://linktr.ee/deltasify"
+    message: "📣 Ready to make an impact? Apply now for open Board, Coaching, or Tournament positions!"
+
+  applications:
+    show: true
+    message: "Interested in joining our team? Apply below!"
+    buttons:
+      - label: "26-27 Board & Tournament Committee Application"
+        url: "https://forms.gle/PS1fBKckQq79YpRE8"
+      - label: "2027 UCR Highlander Invitational Test Writer Interest Form"
+        url: "https://forms.gle/q2r83qNxcV5SyGn2A"
+      - label: "26-27 Science Olympiad Coaching Program (SOCP) Interest Form"
+        url: "https://docs.google.com/forms/d/e/1FAIpQLSdN40p9qpQY63_vR17Gyy_BsKScRMg9CDlJ2DFrCZtuTRnocA/viewform"
 
   p1:
     heading: "UCR Highlander Invitational"
