@@ -40,9 +40,10 @@ initiative_details:
           content: |
             The **Science Olympiad Coaching Program (SOCP)** connects volunteers with middle school students to prepare them for Science Olympiad—a track-meet style academic competition. 
 
-            As a coach, you take the official rule book's "learning goals" and turn them into your own hands-on curriculum, mentoring students to explore open-ended STEM challenges and compete with confidence.
-            
-            In doing so, you will experience the joy of helping students master difficult content and find satisfaction from making a creative lesson for a subject you are interested in. You will also develop mastery of soft skills like how to communicate, be organized, and manage a small group of individuals.
+            You take the official rule book's "learning goals" and turn them into your own hands-on curriculum, mentoring students to explore open-ended STEM challenges and compete with confidence.
+        - title: "Why Coach?"
+          content: |
+            As a coach, you will experience the joy of helping students master difficult content and find satisfaction from making a creative lesson for a subject you are interested in. You will also develop mastery of soft skills like how to communicate, be organized, and manage a small group of individuals.
             
             You can choose to coach an event independently or team up with a partner to have a fun, collaborative experience with a friend.
             
