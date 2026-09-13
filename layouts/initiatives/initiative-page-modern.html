@@ -1,0 +1,431 @@
+{{ define "main" }}
+<article class="modern-initiative">
+  <style>
+    :root {
+      --primary-color: #4f46e5;
+      --primary-hover: #4338ca;
+      --bg-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --card-bg: #ffffff;
+      --card-border: #e5e7eb;
+    }
+
+    .dark {
+      --primary-color: #6366f1;
+      --primary-hover: #4f46e5;
+      --bg-gradient: linear-gradient(135deg, #3730a3 0%, #5b21b6 100%);
+      --text-main: #f9fafb;
+      --text-muted: #d1d5db;
+      --card-bg: #1f2937;
+      --card-border: #374151;
+    }
+
+    .modern-initiative {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text-main);
+      background-color: transparent;
+      line-height: 1.6;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 6rem 1.5rem;
+      text-align: center;
+      background: var(--bg-gradient);
+      color: white;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+
+
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: white;
+      color: var(--primary-color);
+      font-weight: 700;
+      padding: 0.875rem 2rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .dark .btn-primary {
+      background-color: #111827;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Layout Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Section Headers */
+    .section-header {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 3rem;
+      text-align: center;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .section-header a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .section-header a:hover {
+      color: var(--primary-color);
+    }
+
+    .section-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--primary-color);
+      border-radius: 2px;
+    }
+
+    /* Content Grid */
+    .content-blocks-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-auto-rows: 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .content-blocks-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .content-blocks-grid .detail-card:last-child:nth-child(odd) {
+        grid-column: span 2;
+      }
+    }
+
+
+    .detail-card {
+      background: var(--card-bg);
+      border: 2px solid var(--card-border);
+      border-radius: 1rem;
+      padding: 2rem;
+      transition: border-color 0.3s;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+      height: 100%;
+    }
+
+    .detail-card:hover {
+      border-color: var(--primary-color);
+    }
+
+    .detail-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .detail-desc {
+      font-size: 1rem;
+      color: var(--text-main);
+    }
+
+    .detail-desc a {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+
+    .detail-desc p {
+      margin-bottom: 1rem;
+    }
+
+    .detail-desc p:last-child {
+      margin-bottom: 0;
+    }
+
+    .modern-initiative .prose {
+      max-width: none !important;
+    }
+
+    /* Stats Grid */
+    .stat-card {
+      background: var(--bg-gradient);
+      color: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      height: 100%;
+    }
+
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.9;
+    }
+
+    /* Accordion */
+    .accordion-section {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 1rem;
+      padding: 2.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: border-color 0.3s;
+    }
+
+    .accordion-section:hover {
+      border-color: var(--primary-color);
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .accordion-item:last-child {
+      border-bottom: none;
+    }
+
+    .accordion-header {
+      width: 100%;
+      text-align: left;
+      padding: 1.5rem 0;
+      font-size: 1.25rem;
+      font-weight: 700;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-main);
+      transition: color 0.2s;
+    }
+
+    .accordion-header:hover {
+      color: var(--primary-color);
+    }
+
+    .accordion-icon {
+      transition: transform 0.3s ease;
+      color: var(--primary-color);
+    }
+
+    .accordion-item.active .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .accordion-content-inner {
+      padding-bottom: 1.5rem;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .accordion-action-btn {
+      cursor: pointer;
+      appearance: none;
+      outline: none;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      background-color: transparent;
+      color: var(--primary-color);
+      border: 1px solid var(--primary-color);
+      transition: all 0.2s ease;
+    }
+
+    .accordion-action-btn:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+  </style>
+
+  {{ with .Params.initiative_details }}
+
+  <!-- HERO SECTION -->
+  {{ with .main_intro }}
+  <header class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">{{ .title | default $.Title }}</h1>
+    </div>
+  </header>
+  {{ end }}
+
+  <div class="container">
+    <!-- SECTIONS -->
+    {{ with .sections }}
+    {{ range . }}
+    <section id="{{ .id }}" style="scroll-margin-top: 6rem; margin-bottom: 6rem;">
+      <h2 class="section-header"><a href="#{{ .id }}">{{ .title }}</a></h2>
+
+      <!-- STATS -->
+      {{ with .stats }}
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); grid-auto-rows: 1fr; gap: 1.5rem; margin-bottom: 3rem;">
+        {{ range . }}
+        <div class="stat-card">
+          <div class="stat-value">{{ .value }}</div>
+          <div class="stat-label">{{ .label }}</div>
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      <!-- CONTENT BLOCKS -->
+      {{ with .content_blocks }}
+      <div class="content-blocks-grid">
+        {{ range . }}
+        <div class="detail-card">
+          <h3 class="detail-title">{{ .title }}</h3>
+          <div class="detail-desc prose dark:prose-invert max-w-none">{{ .content | markdownify }}</div>
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      <!-- ACCORDION -->
+      {{ with .accordion }}
+      <div class="accordion-section">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+          <h3 class="detail-title" style="margin-bottom: 0;">{{ .title }}</h3>
+          <div style="display: flex; gap: 0.75rem;">
+            <button id="expand-all-btn" class="accordion-action-btn">Expand All</button>
+            <button id="collapse-all-btn" class="accordion-action-btn">Collapse All</button>
+          </div>
+        </div>
+        <div class="accordion-container">
+          {{ range .items }}
+          <div class="accordion-item">
+            <button class="accordion-header">
+              {{ .question }}
+              <svg class="accordion-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner prose dark:prose-invert max-w-none">
+                {{ .answer | markdownify }}
+              </div>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+
+    </section>
+    {{ end }}
+    {{ end }}
+  </div>
+
+  {{ end }}
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Accordion logic
+      const accordions = document.querySelectorAll('.accordion-header');
+
+      function toggleAccordion(item, content, forceState) {
+        if (forceState === 'expand') {
+          item.classList.add('active');
+          content.style.maxHeight = content.scrollHeight + 40 + "px";
+        } else if (forceState === 'collapse') {
+          item.classList.remove('active');
+          content.style.maxHeight = null;
+        } else {
+          item.classList.toggle('active');
+          if (item.classList.contains('active')) {
+            content.style.maxHeight = content.scrollHeight + 40 + "px";
+          } else {
+            content.style.maxHeight = null;
+          }
+        }
+      }
+
+      accordions.forEach(acc => {
+        acc.addEventListener('click', function () {
+          const item = this.parentElement;
+          const content = this.nextElementSibling;
+          toggleAccordion(item, content);
+        });
+      });
+
+      const expandAllBtn = document.getElementById('expand-all-btn');
+      const collapseAllBtn = document.getElementById('collapse-all-btn');
+
+      if (expandAllBtn && collapseAllBtn) {
+        expandAllBtn.addEventListener('click', () => {
+          accordions.forEach(acc => {
+            const item = acc.parentElement;
+            const content = acc.nextElementSibling;
+            toggleAccordion(item, content, 'expand');
+          });
+        });
+
+        collapseAllBtn.addEventListener('click', () => {
+          accordions.forEach(acc => {
+            const item = acc.parentElement;
+            const content = acc.nextElementSibling;
+            toggleAccordion(item, content, 'collapse');
+          });
+        });
+      }
+    });
+  </script>
+</article>
+{{ end }}
