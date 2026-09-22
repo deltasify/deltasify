@@ -115,9 +115,4 @@ initiative_details:
             **Nam Vu**  
             Director, Science Olympiad Coaching Program (2024-26)  
             [nvu042@ucr.edu](mailto:nvu042@ucr.edu)
-        - title: "In-Person"
-          content: |
-            **Clearance** is REQUIRED for in-person coaching.
-            - (1) Please read through this [Clearance Guide](https://docs.google.com/presentation/d/11Qn2dkp1bNNvNqWzj1lkY9Nn94nizV9z1-hFiiCsJww/edit?slide=id.p#slide=id.p) before beginning clearance so you don’t confuse yourself.
-            - (2) We will assign you to an event and date. Once YOU confirm those work for you, you can get started on the in-person clearance ASAP.
 ---
