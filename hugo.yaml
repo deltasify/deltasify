@@ -59,11 +59,11 @@ params:
   banner:
     show: true
     clickable: true
-    link: "https://linktr.ee/deltasify"
-    message: "📣 Ready to make an impact? Apply now for open Board, Coaching, or Tournament positions!"
+    link: "https://ucrscioly.org/"
+    message: "Registration for the 2027 UCR Highlander Invitational is now LIVE!"
 
   applications:
-    show: true
+    show: false
     message: "Interested in joining our team? Apply below!"
     buttons:
       - label: "26-27 Board & Tournament Committee Application"
@@ -126,8 +126,10 @@ menu:
   main:
     - identifier: invitational
       name: UCR Highlander Invitational
-      url: /initiatives/invitational/
+      url: https://ucrscioly.org/
       weight: 10
+      params:
+        target: _blank
     - identifier: scioly-coaching
       name: Science Olympiad Coaching Program (SOCP)
       url: /initiatives/scioly-coaching/
