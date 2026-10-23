@@ -60,7 +60,7 @@ params:
     show: true
     clickable: true
     link: "https://ucrscioly.org/"
-    message: "Registration for the 2027 UCR Highlander Invitational is now LIVE!"
+    message: "Registration for the 2027 UCR Highlander Invitational will open Saturday, October 24, 2026 at 12pm."
 
   applications:
     show: false
